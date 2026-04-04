@@ -893,6 +893,18 @@
     <div>
       <p class="section-label">Available Units</p>
       <h2 class="section-title">Curated <em>properties</em></h2>
+      
+      <!-- LOCATION FILTER -->
+      <div style="display: flex; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap; align-items: center;">
+        <span style="font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); font-weight: 600;">Filter by location:</span>
+        <button class="filter-btn active" data-location="all" onclick="filterProperties('all')" style="background: var(--terra); color: white; padding: 0.6rem 1.2rem; border: none; border-radius: 3px; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">All Locations</button>
+        <button class="filter-btn" data-location="Tijuana" onclick="filterProperties('Tijuana')" style="background: transparent; color: var(--terra); border: 1px solid var(--terra); padding: 0.6rem 1.2rem; border-radius: 3px; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">Tijuana</button>
+        <button class="filter-btn" data-location="Ensenada" onclick="filterProperties('Ensenada')" style="background: transparent; color: var(--terra); border: 1px solid var(--terra); padding: 0.6rem 1.2rem; border-radius: 3px; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">Ensenada</button>
+        <button class="filter-btn" data-location="Los Cabos" onclick="filterProperties('Los Cabos')" style="background: transparent; color: var(--terra); border: 1px solid var(--terra); padding: 0.6rem 1.2rem; border-radius: 3px; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">Los Cabos</button>
+        <button class="filter-btn" data-location="Rosarito" onclick="filterProperties('Rosarito')" style="background: transparent; color: var(--terra); border: 1px solid var(--terra); padding: 0.6rem 1.2rem; border-radius: 3px; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">Rosarito</button>
+        <button class="filter-btn" data-location="Tulum" onclick="filterProperties('Tulum')" style="background: transparent; color: var(--terra); border: 1px solid var(--terra); padding: 0.6rem 1.2rem; border-radius: 3px; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">Tulum</button>
+      </div>
+
     </div>
     <a href="#inquiry" class="btn-ghost">Request full portfolio →</a>
   </div>
@@ -1660,6 +1672,44 @@
       }
     });
   </script>
+
+
+  // Location filter functionality
+  function filterProperties(location) {
+    // Update button states
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    filterBtns.forEach(btn => {
+      if (btn.getAttribute('data-location') === location) {
+        btn.style.background = 'var(--terra)';
+        btn.style.color = 'white';
+        btn.style.border = '1px solid var(--terra)';
+        btn.classList.add('active');
+      } else {
+        btn.style.background = 'transparent';
+        btn.style.color = 'var(--terra)';
+        btn.style.border = '1px solid var(--terra)';
+        btn.classList.remove('active');
+      }
+    });
+
+    // Filter property cards
+    const propCards = document.querySelectorAll('.prop-card');
+    let visibleCount = 0;
+    propCards.forEach(card => {
+      const cardLocation = card.getAttribute('data-location');
+      if (location === 'all' || cardLocation === location) {
+        card.style.display = 'block';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    // Scroll to properties section
+    setTimeout(() => {
+      document.querySelector('.properties').scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  }
 
 </script>
 </body>
