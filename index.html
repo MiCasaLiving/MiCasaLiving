@@ -1,942 +1,762 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mi Casa Living — Modern Rentals in Mexico</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Casa Living - Curated Rentals for Remote Expats in Mexico</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f8f9fa;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
 
-    :root {
-      --terra: #C4623A;
-      --terra-light: #D97B52;
-      --terra-dark: #A8512F;
-      --cream: #FAF6F0;
-      --warm-white: #FFFCF8;
-      --sand: #E8DDD0;
-      --dark: #1C1510;
-      --brown: #3D2B1F;
-      --muted: #7A6458;
-      --gold: #C9A96E;
-      --white-trans: rgba(255, 252, 248, 0.95);
-      --dark-trans: rgba(28, 21, 16, 0.9);
-    }
+        /* Header */
+        header {
+            background: #fff;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-    html { scroll-behavior: smooth; }
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--warm-white);
-      color: var(--dark);
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
 
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1.6rem 4rem;
-      background: var(--white-trans);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(196, 98, 58, 0.08);
-      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.02);
-    }
-    .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem; font-weight: 400; letter-spacing: 0.05em;
-      color: var(--dark); text-decoration: none;
-    }
-    .nav-logo span { color: var(--terra); }
-    .nav-links { display: flex; gap: 3rem; list-style: none; }
-    .nav-links a {
-      font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
-      color: var(--muted); text-decoration: none; font-weight: 500;
-      transition: color 0.3s ease;
-      position: relative;
-    }
-    .nav-links a::after {
-      content: ''; position: absolute; bottom: -6px; left: 0; width: 0; height: 1px;
-      background: var(--terra); transition: width 0.3s ease;
-    }
-    .nav-links a:hover { color: var(--terra); }
-    .nav-links a:hover::after { width: 100%; }
-    .nav-cta {
-      background: var(--terra); color: white;
-      padding: 0.7rem 1.8rem; border-radius: 3px;
-      font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
-      text-decoration: none; font-weight: 600;
-      transition: all 0.3s ease;
-      box-shadow: 0 8px 24px rgba(196, 98, 58, 0.2);
-    }
-    .nav-cta:hover {
-      background: var(--terra-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 32px rgba(196, 98, 58, 0.3);
-    }
+        nav a {
+            text-decoration: none;
+            color: #1a1a1a;
+            margin-left: 2rem;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
 
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      display: grid; grid-template-columns: 1fr 1fr;
-      padding-top: 0;
-    }
-    .hero-left {
-      display: flex; flex-direction: column; justify-content: center;
-      padding: 6rem 5rem;
-      background: var(--warm-white);
-      position: relative;
-    }
-    .hero-eyebrow {
-      font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
-      color: var(--terra); margin-bottom: 2rem; font-weight: 600;
-    }
-    .hero-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3.2rem, 6vw, 5.5rem);
-      line-height: 1.08; font-weight: 300;
-      color: var(--dark); margin-bottom: 2.2rem;
-      letter-spacing: -0.02em;
-    }
-    .hero-title em { font-style: italic; color: var(--terra); font-weight: 300; }
-    .hero-sub {
-      font-size: 1.05rem; line-height: 1.8; color: var(--muted);
-      max-width: 460px; margin-bottom: 3rem; font-weight: 300; letter-spacing: 0.3px;
-    }
-    .hero-actions { display: flex; gap: 1.2rem; align-items: center; }
-    .btn-primary {
-      background: var(--terra); color: white;
-      padding: 1rem 2.4rem; border-radius: 3px;
-      font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;
-      text-decoration: none; font-weight: 600;
-      transition: all 0.3s ease;
-      display: inline-block;
-      box-shadow: 0 8px 24px rgba(196, 98, 58, 0.2);
-      border: none; cursor: pointer;
-    }
-    .btn-primary:hover {
-      background: var(--terra-dark);
-      transform: translateY(-3px);
-      box-shadow: 0 16px 40px rgba(196, 98, 58, 0.3);
-    }
-    .btn-ghost {
-      color: var(--dark); font-size: 0.8rem; letter-spacing: 0.1em;
-      text-decoration: none; font-weight: 500;
-      border-bottom: 2px solid var(--dark);
-      padding-bottom: 2px; transition: all 0.3s ease;
-    }
-    .btn-ghost:hover {
-      color: var(--terra);
-      border-color: var(--terra);
-    }
-    .hero-stats {
-      display: flex; gap: 4rem; margin-top: 5rem;
-      padding-top: 2.5rem; border-top: 1px solid var(--sand);
-    }
-    .stat-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.4rem; font-weight: 400; color: var(--dark); line-height: 1;
-    }
-    .stat-label {
-      font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--muted); margin-top: 0.4rem; font-weight: 500;
-    }
-    .hero-right {
-      position: relative; overflow: hidden;
-      background: var(--sand);
-    }
-    .hero-img-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
-      height: 100%; gap: 2px;
-    }
-    .hero-img-cell {
-      overflow: hidden; position: relative; background: rgba(0,0,0,0.05);
-    }
-    .hero-img-cell:first-child { grid-row: span 2; }
-    .hero-img-cell img {
-      width: 100%; height: 100%; object-fit: cover;
-      transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-    .hero-img-cell:hover img { transform: scale(1.05); }
-    .hero-badge {
-      position: absolute; bottom: 2.5rem; left: 2.5rem;
-      background: var(--dark-trans); color: white;
-      padding: 1rem 1.5rem; border-radius: 3px;
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    .hero-badge-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.05rem; font-weight: 400;
-    }
-    .hero-badge-sub { font-size: 0.75rem; color: rgba(255,255,255,0.7); margin-top: 0.3rem; letter-spacing: 0.5px; }
+        nav a:hover {
+            color: #0066cc;
+        }
 
-    /* ── MARQUEE ── */
-    .marquee-bar {
-      background: linear-gradient(135deg, var(--terra) 0%, #d97b52 100%);
-      color: white;
-      padding: 1rem 0; overflow: hidden; white-space: nowrap;
-    }
-    .marquee-inner {
-      display: inline-flex; gap: 3.5rem;
-      animation: marquee 30s linear infinite;
-    }
-    .marquee-item {
-      font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase;
-      display: flex; align-items: center; gap: 1rem; font-weight: 500;
-    }
-    .marquee-dot { width: 5px; height: 5px; background: rgba(255,255,255,0.6); border-radius: 50%; }
-    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
 
-    /* ── SECTION SHARED ── */
-    section { padding: 8rem 5rem; }
-    .section-label {
-      font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
-      color: var(--terra); margin-bottom: 1.2rem; font-weight: 600;
-    }
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.2rem, 4vw, 3.5rem);
-      font-weight: 300; line-height: 1.15; color: var(--dark);
-      letter-spacing: -0.02em;
-    }
-    .section-title em { font-style: italic; color: var(--terra); font-weight: 300; }
+        .hero-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
 
-    /* ── WHY US ── */
-    .why {
-      background: var(--cream);
-      display: grid; grid-template-columns: 1fr 1.5fr; gap: 7rem;
-      align-items: start;
-    }
-    .why-left { position: sticky; top: 10rem; }
-    .why-sub {
-      font-size: 1rem; line-height: 1.85; color: var(--muted);
-      margin-top: 1.8rem; font-weight: 300; letter-spacing: 0.3px;
-    }
-    .why-pillars { display: flex; flex-direction: column; gap: 0; }
-    .pillar {
-      padding: 2.5rem 0;
-      border-bottom: 1px solid var(--sand);
-      display: grid; grid-template-columns: 4rem 1fr; gap: 2rem;
-      align-items: start;
-      transition: opacity 0.3s ease;
-    }
-    .pillar:first-child { border-top: 1px solid var(--sand); }
-    .pillar:hover { opacity: 1; }
-    .pillar-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem; color: var(--terra); font-weight: 600;
-      padding-top: 0.2rem;
-    }
-    .pillar-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.35rem; font-weight: 400; margin-bottom: 0.6rem;
-    }
-    .pillar-body { font-size: 0.9rem; line-height: 1.75; color: var(--muted); font-weight: 300; letter-spacing: 0.2px; }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
 
-    /* ── PROPERTIES ── */
-    .properties { background: var(--warm-white); }
-    .properties-header {
-      display: flex; justify-content: space-between; align-items: flex-end;
-      margin-bottom: 4rem;
-    }
-    .prop-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
-    }
-    .prop-card {
-      background: white; border: 1px solid var(--sand);
-      overflow: hidden; border-radius: 4px;
-      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      cursor: pointer;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-    }
-    .prop-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 24px 48px rgba(28, 21, 16, 0.12);
-      border-color: var(--terra);
-    }
-    .prop-card-img {
-      height: 240px; overflow: hidden; position: relative;
-      background: var(--sand);
-    }
-    .prop-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
-    .prop-card:hover .prop-card-img img { transform: scale(1.08); }
-    .prop-tag {
-      position: absolute; top: 1.2rem; left: 1.2rem;
-      background: var(--terra); color: white;
-      font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
-      padding: 0.4rem 0.8rem; border-radius: 2px; font-weight: 600;
-    }
-    .prop-card-body { padding: 1.8rem; }
-    .prop-type {
-      font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
-      color: var(--muted); margin-bottom: 0.5rem; font-weight: 600;
-    }
-    .prop-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem; font-weight: 400; margin-bottom: 1rem;
-    }
-    .prop-details {
-      display: flex; gap: 1.5rem;
-      font-size: 0.8rem; color: var(--muted);
-    }
-    .prop-detail { display: flex; align-items: center; gap: 0.4rem; }
-    .prop-price {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.15rem; color: var(--terra); font-weight: 400;
-      margin-top: 1.2rem; padding-top: 1.2rem;
-      border-top: 1px solid var(--sand);
-    }
+        .subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
 
-    /* ── STORY ── */
-    .story {
-      background: var(--dark); color: white;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 7rem;
-      align-items: center;
-    }
-    .story .section-label { color: var(--gold); }
-    .story .section-title { color: white; }
-    .story-body {
-      font-size: 1rem; line-height: 1.9; color: rgba(255,255,255,0.7);
-      margin-top: 1.8rem; font-weight: 300; letter-spacing: 0.3px;
-    }
-    .story-body p + p { margin-top: 1.4rem; }
-    .story-right { position: relative; }
-    .story-img-wrap {
-      position: relative; border-radius: 4px; overflow: hidden;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
-    }
-    .story-img-wrap img { width: 100%; display: block; }
-    .story-float {
-      position: absolute; bottom: -2.5rem; left: -2.5rem;
-      background: var(--terra); color: white;
-      padding: 1.8rem; width: 180px;
-      border-radius: 3px;
-      box-shadow: 0 12px 40px rgba(196, 98, 58, 0.25);
-    }
-    .story-float-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.8rem; font-weight: 300; line-height: 1;
-    }
-    .story-float-label { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; margin-top: 0.4rem; opacity: 0.85; font-weight: 500; }
-    .story-signature {
-      margin-top: 2.5rem;
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic; font-size: 1.2rem;
-      color: rgba(255,255,255,0.5);
-    }
+        .cta-button {
+            display: inline-block;
+            background: #0066cc;
+            color: white;
+            padding: 0.75rem 2rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
 
-    /* ── PROCESS ── */
-    .process { background: var(--cream); }
-    .process-header { text-align: center; max-width: 580px; margin: 0 auto 4.5rem; }
-    .process-header .section-label { justify-content: center; display: flex; }
-    .process-steps {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5rem;
-      position: relative;
-    }
-    .process-steps::before {
-      content: '';
-      position: absolute; top: 2rem; left: 10%; right: 10%; height: 2px;
-      background: linear-gradient(to right, transparent, var(--terra) 20%, var(--gold) 50%, var(--terra) 80%, transparent);
-      opacity: 0.4;
-    }
-    .process-step { text-align: center; position: relative; padding-top: 1.5rem; }
-    .step-circle {
-      width: 5rem; height: 5rem; border-radius: 50%;
-      background: var(--warm-white); border: 2px solid var(--terra);
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 1.5rem;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem; color: var(--terra); font-weight: 400;
-      transition: all 0.3s ease;
-    }
-    .process-step:hover .step-circle {
-      transform: scale(1.1);
-      box-shadow: 0 8px 20px rgba(196, 98, 58, 0.2);
-    }
-    .step-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem; margin-bottom: 0.7rem; font-weight: 400;
-    }
-    .step-body { font-size: 0.85rem; line-height: 1.7; color: var(--muted); font-weight: 300; letter-spacing: 0.2px; }
+        .cta-button:hover {
+            background: #0052a3;
+        }
 
-    /* ── TESTIMONIALS ── */
-    .testimonials { background: var(--warm-white); }
-    .test-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; margin-top: 3.5rem; }
-    .test-card {
-      background: white; padding: 2.5rem;
-      border-left: 4px solid var(--terra); position: relative;
-      border-radius: 3px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-      transition: all 0.3s ease;
-    }
-    .test-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
-    }
-    .test-quote {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem; line-height: 1.8; font-style: italic;
-      color: var(--dark); margin-bottom: 1.8rem;
-    }
-    .test-author { font-size: 0.8rem; letter-spacing: 0.1em; color: var(--muted); font-weight: 500; }
-    .test-author strong { color: var(--dark); display: block; margin-bottom: 0.3rem; font-style: normal; font-family: 'DM Sans'; font-weight: 600; }
-    .test-stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 1.2rem; letter-spacing: 1px; }
+        /* Properties Section */
+        .properties-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
 
-    /* ── INQUIRY / CRM ── */
-    .inquiry {
-      background: var(--dark);
-      display: grid; grid-template-columns: 1fr 1fr; gap: 7rem;
-      align-items: start;
-    }
-    .inquiry .section-label { color: var(--gold); }
-    .inquiry .section-title { color: white; }
-    .inquiry-sub {
-      font-size: 1rem; line-height: 1.8; color: rgba(255,255,255,0.6);
-      margin-top: 1.5rem; font-weight: 300; letter-spacing: 0.3px;
-    }
-    .inquiry-info { margin-top: 3.5rem; display: flex; flex-direction: column; gap: 1.5rem; }
-    .info-item { display: flex; gap: 1.2rem; align-items: flex-start; }
-    .info-icon {
-      width: 2.2rem; height: 2.2rem; border: 1.5px solid var(--gold);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0; font-size: 0.95rem; color: var(--gold);
-    }
-    .info-text { font-size: 0.9rem; color: rgba(255,255,255,0.6); line-height: 1.7; font-weight: 300; }
-    .info-text strong { color: white; display: block; margin-bottom: 0.2rem; font-weight: 600; }
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
 
-    /* Form */
-    .inquiry-form {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      padding: 3rem; border-radius: 4px;
-      backdrop-filter: blur(10px);
-    }
-    .form-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem; color: white; margin-bottom: 2.2rem; font-weight: 300;
-    }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
-    .form-group { margin-bottom: 1.4rem; }
-    .form-group label {
-      display: block; font-size: 0.7rem; letter-spacing: 0.15em;
-      text-transform: uppercase; color: rgba(255,255,255,0.45);
-      margin-bottom: 0.7rem; font-weight: 600;
-    }
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-      color: white; padding: 1rem 1.2rem;
-      font-size: 0.9rem; font-family: 'DM Sans', sans-serif;
-      border-radius: 3px; outline: none;
-      transition: all 0.3s ease;
-      appearance: none;
-      font-weight: 300;
-    }
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      border-color: var(--terra);
-      background: rgba(255,255,255,0.12);
-      box-shadow: 0 0 0 3px rgba(196, 98, 58, 0.1);
-    }
-    .form-group select option { background: var(--dark); }
-    .form-group textarea { resize: vertical; min-height: 110px; }
-    .form-group input::placeholder,
-    .form-group textarea::placeholder { color: rgba(255,255,255,0.3); font-weight: 300; }
-    .form-submit {
-      width: 100%; background: var(--terra); color: white;
-      border: none; padding: 1.1rem; cursor: pointer;
-      font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase;
-      font-family: 'DM Sans', sans-serif; font-weight: 600;
-      transition: all 0.3s ease; border-radius: 3px; margin-top: 0.8rem;
-      box-shadow: 0 8px 24px rgba(196, 98, 58, 0.2);
-    }
-    .form-submit:hover {
-      background: var(--terra-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 32px rgba(196, 98, 58, 0.3);
-    }
-    .form-note {
-      font-size: 0.75rem; color: rgba(255,255,255,0.3);
-      text-align: center; margin-top: 1.2rem; line-height: 1.6; font-weight: 300;
-    }
-    .form-success {
-      display: none; text-align: center; padding: 2.5rem;
-    }
-    .form-success-icon { font-size: 3rem; margin-bottom: 1.2rem; }
-    .form-success-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem; color: white; margin-bottom: 0.6rem; font-weight: 300;
-    }
-    .form-success-sub { font-size: 0.9rem; color: rgba(255,255,255,0.55); font-weight: 300; letter-spacing: 0.3px; }
+        .filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
 
-    /* ── FOOTER ── */
-    footer {
-      background: #0F0B08; color: rgba(255,255,255,0.45);
-      padding: 3.5rem 5rem;
-      display: flex; justify-content: space-between; align-items: center;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-    }
-    .footer-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem; color: white; font-weight: 300; letter-spacing: 0.02em;
-    }
-    .footer-logo span { color: var(--terra); }
-    .footer-sub { font-size: 0.75rem; letter-spacing: 0.1em; margin-top: 0.4rem; font-weight: 300; text-transform: uppercase; }
-    .footer-links { display: flex; gap: 2.5rem; }
-    .footer-links a {
-      font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
-      color: rgba(255,255,255,0.35); text-decoration: none;
-      transition: color 0.3s ease; font-weight: 500;
-    }
-    .footer-links a:hover { color: var(--terra); }
-    .footer-copy { font-size: 0.75rem; font-weight: 300; }
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
 
-    /* ── ANIMATIONS ── */
-    .fade-up {
-      opacity: 0; transform: translateY(28px);
-      transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-    .fade-up.visible { opacity: 1; transform: translateY(0); }
+        .filter-btn.active {
+            background: #0066cc;
+            color: white;
+            border-color: #0066cc;
+        }
 
-    /* ── RESPONSIVE ── */
-    @media (max-width: 1024px) {
-      nav { padding: 1.2rem 2rem; }
-      .nav-links { gap: 2rem; }
-      .nav-links { display: none; }
-      .hero { grid-template-columns: 1fr; }
-      .hero-right { min-height: 60vh; }
-      .hero-left { padding: 4rem 2.5rem; }
-      .hero-left, .hero-right { margin-top: 4rem; }
-      section { padding: 6rem 2.5rem; }
-      .why, .story, .inquiry { grid-template-columns: 1fr; gap: 4rem; }
-      .why-left { position: static; }
-      .prop-grid { grid-template-columns: repeat(2, 1fr); }
-      .process-steps { grid-template-columns: repeat(2, 1fr); }
-      .test-grid { grid-template-columns: repeat(2, 1fr); }
-      .story-float { position: static; width: 100%; margin-top: 2rem; }
-      footer { flex-direction: column; gap: 2rem; text-align: center; }
-      .footer-links { flex-wrap: wrap; justify-content: center; }
-      .form-row { grid-template-columns: 1fr; }
-      .inquiry-form { padding: 2rem; }
-    }
+        .filter-btn:hover {
+            border-color: #0066cc;
+        }
 
-    @media (max-width: 640px) {
-      nav { padding: 1rem; }
-      .nav-logo { font-size: 1.3rem; }
-      .nav-cta { padding: 0.6rem 1.2rem; font-size: 0.7rem; }
-      .hero-eyebrow { font-size: 0.65rem; }
-      .hero-title { font-size: clamp(2rem, 5vw, 3rem); }
-      .hero-sub { font-size: 0.95rem; max-width: 100%; }
-      .hero-actions { flex-direction: column; gap: 0.8rem; width: 100%; }
-      .btn-primary, .btn-ghost { width: 100%; text-align: center; }
-      .hero-stats { flex-direction: column; gap: 2rem; }
-      section { padding: 4rem 1.5rem; }
-      .why { grid-template-columns: 1fr; }
-      .prop-grid { grid-template-columns: 1fr; }
-      .process-steps { grid-template-columns: 1fr; gap: 2rem; }
-      .test-grid { grid-template-columns: 1fr; }
-      .inquiry { grid-template-columns: 1fr; }
-      .form-row { grid-template-columns: 1fr; }
-      footer { padding: 2rem 1.5rem; font-size: 0.8rem; }
-    }
-  </style>
+        /* Property Grid */
+        .properties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .property-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .property-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .property-image {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .property-info {
+            padding: 1.5rem;
+        }
+
+        .property-location {
+            font-size: 0.85rem;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .property-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .property-description {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .property-specs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .spec {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .property-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #0066cc;
+            margin-bottom: 1rem;
+        }
+
+        .view-btn {
+            display: inline-block;
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .view-btn:hover {
+            color: #0052a3;
+        }
+
+        /* Persona Section */
+        .persona-section {
+            background: #f8f9fa;
+            padding: 3rem 2rem;
+            margin: 4rem 0;
+        }
+
+        .persona-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .persona-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .persona-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .persona-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #0066cc;
+        }
+
+        .persona-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .persona-card p {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 8px;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #999;
+        }
+
+        .modal-close:hover {
+            color: #1a1a1a;
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .modal-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .modal-meta-item {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .modal-meta-item strong {
+            color: #1a1a1a;
+        }
+
+        .modal-description {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .amenities {
+            margin-top: 1.5rem;
+        }
+
+        .amenities h4 {
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+        }
+
+        .amenities-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .amenity-tag {
+            background: #f0f0f0;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav a {
+                margin-left: 1rem;
+            }
+
+            .properties-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">Mi Casa <span>Living</span></a>
-  <ul class="nav-links">
-    <li><a href="#properties">Properties</a></li>
-    <li><a href="#why">Why Us</a></li>
-    <li><a href="#story">Our Story</a></li>
-    <li><a href="#inquiry">Inquire</a></li>
-  </ul>
-  <a href="#inquiry" class="nav-cta">Request Info</a>
-</nav>
-
-<!-- HERO -->
-<section class="hero" style="padding:0">
-  <div class="hero-left">
-    <p class="hero-eyebrow fade-up">Premium Long-Term Rentals · México</p>
-    <h1 class="hero-title fade-up">Your home<br>in <em>México,</em><br>handled.</h1>
-    <p class="hero-sub fade-up">Modern, fully-managed apartments for remote professionals and long-term residents. Built on trust, backed by a team that shows up.</p>
-    <div class="hero-actions fade-up">
-      <a href="#properties" class="btn-primary">View Properties</a>
-      <a href="#inquiry" class="btn-ghost">Get in touch</a>
-    </div>
-    <div class="hero-stats fade-up">
-      <div>
-        <div class="stat-num">20+</div>
-        <div class="stat-label">Units Available</div>
-      </div>
-      <div>
-        <div class="stat-num">5</div>
-        <div class="stat-label">Years Building</div>
-      </div>
-      <div>
-        <div class="stat-num">24h</div>
-        <div class="stat-label">Response Time</div>
-      </div>
-    </div>
-  </div>
-  <div class="hero-right">
-    <div class="hero-img-grid">
-      <div class="hero-img-cell">
-        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80" alt="Modern apartment exterior"/>
-        <div class="hero-badge">
-          <div class="hero-badge-title">Fully Managed</div>
-          <div class="hero-badge-sub">Issues resolved within 24 hours</div>
+    <header>
+        <div class="header-content">
+            <div class="logo">Mi Casa Living</div>
+            <nav>
+                <a href="#properties">Properties</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
         </div>
-      </div>
-      <div class="hero-img-cell">
-        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&q=80" alt="Modern interior"/>
-      </div>
-      <div class="hero-img-cell">
-        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&q=80" alt="Building amenities"/>
-      </div>
-    </div>
-  </div>
-</section>
+    </header>
 
-<!-- MARQUEE -->
-<div class="marquee-bar">
-  <div class="marquee-inner">
-    <span class="marquee-item"><span class="marquee-dot"></span>Studio to 3-Bedroom Apartments</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Modern Buildings with Amenities</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Safe & Strategic Locations</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Long-Term Leases Welcome</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Remote Worker Friendly</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Same-Day Maintenance Response</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Bilingual Support Team</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Studio to 3-Bedroom Apartments</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Modern Buildings with Amenities</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Safe & Strategic Locations</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Long-Term Leases Welcome</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Remote Worker Friendly</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Same-Day Maintenance Response</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Bilingual Support Team</span>
-  </div>
-</div>
-
-<!-- WHY US -->
-<section class="why" id="why">
-  <div class="why-left">
-    <p class="section-label fade-up">Why Mi Casa Living</p>
-    <h2 class="section-title fade-up">We built this for<br><em>people like you</em></h2>
-    <p class="why-sub fade-up">Americans living in México deserve more than a landlord. They deserve a team. We've spent five years creating a rental experience built around safety, responsiveness, and feeling genuinely at home.</p>
-  </div>
-  <div class="why-pillars">
-    <div class="pillar fade-up">
-      <div class="pillar-num">01</div>
-      <div>
-        <div class="pillar-title">Same-Day Maintenance</div>
-        <div class="pillar-body">AC not working? Plumbing issue? We have a dedicated on-the-ground team ready to respond. No waiting, no excuses — your comfort is our reputation.</div>
-      </div>
-    </div>
-    <div class="pillar fade-up">
-      <div class="pillar-num">02</div>
-      <div>
-        <div class="pillar-title">Safety First, Always</div>
-        <div class="pillar-body">Every property is hand-selected for location, building quality, and neighborhood safety. We wouldn't rent it to you if we wouldn't live there ourselves.</div>
-      </div>
-    </div>
-    <div class="pillar fade-up">
-      <div class="pillar-num">03</div>
-      <div>
-        <div class="pillar-title">Bilingual & Transparent</div>
-        <div class="pillar-body">English and Spanish, no surprises. We handle every contract, utility, and communication clearly — no language barrier, no hidden fees.</div>
-      </div>
-    </div>
-    <div class="pillar fade-up">
-      <div class="pillar-num">04</div>
-      <div>
-        <div class="pillar-title">Long-Term Welcome</div>
-        <div class="pillar-body">We specialize in 12-month+ leases. We want you to put down roots. Stable tenants create stable homes — it's a relationship, not a transaction.</div>
-      </div>
-    </div>
-    <div class="pillar fade-up">
-      <div class="pillar-num">05</div>
-      <div>
-        <div class="pillar-title">Remote Work Ready</div>
-        <div class="pillar-body">High-speed internet, modern buildings, quiet spaces. Our properties are selected with the remote professional in mind — work from México without compromise.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROPERTIES -->
-<section class="properties" id="properties">
-  <div class="properties-header fade-up">
-    <div>
-      <p class="section-label">Available Units</p>
-      <h2 class="section-title">Curated <em>properties</em></h2>
-    </div>
-    <a href="#inquiry" class="btn-ghost">Request full portfolio →</a>
-  </div>
-  <div class="prop-grid">
-    <div class="prop-card fade-up">
-      <div class="prop-card-img">
-        <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=500&q=80" alt="Studio apartment"/>
-        <span class="prop-tag">Available</span>
-      </div>
-      <div class="prop-card-body">
-        <p class="prop-type">Studio</p>
-        <h3 class="prop-name">Luminoso Studio</h3>
-        <div class="prop-details">
-          <span class="prop-detail">⬜ 45 m²</span>
-          <span class="prop-detail">🏢 Floor 8</span>
-          <span class="prop-detail">🏊 Pool & Gym</span>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Live Better for Less</h1>
+            <p class="subtitle">Curated long-term rentals for remote workers and expats across Mexico's most vibrant destinations</p>
+            <a href="#properties" class="cta-button">Explore Properties</a>
         </div>
-        <div class="prop-price">From $800 USD / month</div>
-      </div>
-    </div>
-    <div class="prop-card fade-up">
-      <div class="prop-card-img">
-        <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=500&q=80" alt="1 bedroom"/>
-        <span class="prop-tag">Available</span>
-      </div>
-      <div class="prop-card-body">
-        <p class="prop-type">1 Bedroom</p>
-        <h3 class="prop-name">Moderno One</h3>
-        <div class="prop-details">
-          <span class="prop-detail">⬜ 68 m²</span>
-          <span class="prop-detail">🏢 Floor 12</span>
-          <span class="prop-detail">🏊 Full Amenities</span>
+    </section>
+
+    <section class="properties-section" id="properties">
+        <h2 class="section-title">Available Properties</h2>
+        
+        <div class="filters">
+            <button class="filter-btn active" onclick="filterByLocation('all')">All Locations</button>
+            <button class="filter-btn" onclick="filterByLocation('Tijuana')">Tijuana</button>
+            <button class="filter-btn" onclick="filterByLocation('Ensenada')">Ensenada</button>
+            <button class="filter-btn" onclick="filterByLocation('Los Cabos')">Los Cabos</button>
+            <button class="filter-btn" onclick="filterByLocation('Rosarito')">Rosarito</button>
+            <button class="filter-btn" onclick="filterByLocation('Tulum')">Tulum</button>
         </div>
-        <div class="prop-price">From $1,100 USD / month</div>
-      </div>
-    </div>
-    <div class="prop-card fade-up">
-      <div class="prop-card-img">
-        <img src="https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?w=500&q=80" alt="3 bedroom"/>
-        <span class="prop-tag" style="background:var(--brown)">Leasing Soon</span>
-      </div>
-      <div class="prop-card-body">
-        <p class="prop-type">3 Bedroom</p>
-        <h3 class="prop-name">Familia Grande</h3>
-        <div class="prop-details">
-          <span class="prop-detail">⬜ 130 m²</span>
-          <span class="prop-detail">🏢 Floor 5</span>
-          <span class="prop-detail">🐕 Pet Friendly</span>
+
+        <div class="properties-grid" id="propertiesGrid">
+            <!-- Properties will be generated here by JavaScript -->
         </div>
-        <div class="prop-price">From $1,800 USD / month</div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- STORY -->
-<section class="story" id="story">
-  <div>
-    <p class="section-label fade-up">Our Story</p>
-    <h2 class="section-title fade-up">A family business<br>built on <em>two roots</em></h2>
-    <div class="story-body fade-up">
-      <p>We are a husband and wife team — originally from México, now based between San Diego and our properties south of the border. For five years we have been quietly building something we believe in: safe, beautiful, well-managed homes for Americans who choose México as their home.</p>
-      <p>We know both worlds. We understand what an American renter needs — reliability, clear communication, and knowing someone will actually pick up the phone. And we know México — the neighborhoods, the buildings, the people, the culture.</p>
-      <p>Every apartment in our portfolio has been personally selected. We wouldn't rent it to you if we wouldn't live there ourselves. Mi Casa Living is our legacy — and we intend to build it one happy tenant at a time.</p>
-    </div>
-    <p class="story-signature fade-up">— A Grupo Tague Family Company</p>
-  </div>
-  <div class="story-right fade-up">
-    <div class="story-img-wrap">
-      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Beautiful Mexican property"/>
-    </div>
-    <div class="story-float">
-      <div class="story-float-num">5</div>
-      <div class="story-float-label">Years of building</div>
-    </div>
-  </div>
-</section>
-
-<!-- PROCESS -->
-<section class="process">
-  <div class="process-header">
-    <p class="section-label fade-up">How It Works</p>
-    <h2 class="section-title fade-up">Simple from <em>inquiry to keys</em></h2>
-  </div>
-  <div class="process-steps">
-    <div class="process-step fade-up">
-      <div class="step-circle">1</div>
-      <h3 class="step-title">Reach Out</h3>
-      <p class="step-body">Fill out our inquiry form with your ideal unit size, location, and move-in date.</p>
-    </div>
-    <div class="process-step fade-up">
-      <div class="step-circle">2</div>
-      <h3 class="step-title">We Match You</h3>
-      <p class="step-body">We'll curate available options that fit your needs and share photos, details, and pricing.</p>
-    </div>
-    <div class="process-step fade-up">
-      <div class="step-circle">3</div>
-      <h3 class="step-title">Virtual Tour</h3>
-      <p class="step-body">We'll walk you through the unit on video call — no surprises when you arrive.</p>
-    </div>
-    <div class="process-step fade-up">
-      <div class="step-circle">4</div>
-      <h3 class="step-title">Move In</h3>
-      <p class="step-body">Sign your lease, meet your contact, and get your keys. We're here from day one.</p>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="testimonials">
-  <p class="section-label fade-up">What Tenants Say</p>
-  <h2 class="section-title fade-up">Real people, <em>real homes</em></h2>
-  <div class="test-grid">
-    <div class="test-card fade-up">
-      <div class="test-stars">★★★★★</div>
-      <p class="test-quote">"I was nervous about renting remotely in a foreign country. Mi Casa Living made it feel completely safe. They answered every question, the apartment was exactly as shown, and when my AC acted up they had someone there within hours."</p>
-      <div class="test-author"><strong>Sarah T.</strong> Remote Designer · San Francisco → CDMX</div>
-    </div>
-    <div class="test-card fade-up">
-      <div class="test-stars">★★★★★</div>
-      <p class="test-quote">"I've been renting with them for two years. The building is safe, the location is perfect, and I've never had an issue that wasn't resolved the same day. This is what renting in México should feel like."</p>
-      <div class="test-author"><strong>James R.</strong> Software Engineer · Austin → Guadalajara</div>
-    </div>
-    <div class="test-card fade-up">
-      <div class="test-stars">★★★★★</div>
-      <p class="test-quote">"As a real estate agent I've referred four clients to Mi Casa Living. Every single one has renewed their lease. That says everything. A professional, trustworthy operation I recommend without hesitation."</p>
-      <div class="test-author"><strong>Monica L.</strong> Real Estate Agent · San Diego</div>
-    </div>
-  </div>
-</section>
-
-<!-- INQUIRY / CRM -->
-<section class="inquiry" id="inquiry">
-  <div>
-    <p class="section-label fade-up">Get in Touch</p>
-    <h2 class="section-title fade-up">Find your<br><em>home in México</em></h2>
-    <p class="inquiry-sub fade-up">Tell us what you're looking for and we'll reach out within 24 hours with options that match your needs. No pressure, no spam — just a real conversation.</p>
-    <div class="inquiry-info fade-up">
-      <div class="info-item">
-        <div class="info-icon">✉</div>
-        <div class="info-text"><strong>Email</strong>hello@micasaliving.com</div>
-      </div>
-      <div class="info-item">
-        <div class="info-icon">📱</div>
-        <div class="info-text"><strong>WhatsApp</strong>Available for quick questions</div>
-      </div>
-      <div class="info-item">
-        <div class="info-icon">📍</div>
-        <div class="info-text"><strong>Based in</strong>San Diego, CA · Properties across México</div>
-      </div>
-      <div class="info-item">
-        <div class="info-icon">🗣</div>
-        <div class="info-text"><strong>Languages</strong>English & Spanish — fully bilingual</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="inquiry-form fade-up">
-    <p class="form-title">Request Property Information</p>
-    <div id="inquiryForm">
-      <div class="form-row">
-        <div class="form-group">
-          <label>First Name</label>
-          <input type="text" placeholder="Jane" id="fname"/>
+    <section class="persona-section" id="about">
+        <div class="persona-content">
+            <h2 class="persona-title">Who We Serve</h2>
+            <div class="persona-grid">
+                <div class="persona-card">
+                    <h3>Remote Workers</h3>
+                    <p>Digital nomads and remote employees seeking work-life balance without sacrificing career growth. We prioritize fast WiFi, professional work spaces, and reliable infrastructure.</p>
+                </div>
+                <div class="persona-card">
+                    <h3>Expat Professionals</h3>
+                    <p>Americans relocating to Mexico for 1+ years who want modern comfort, transparent pricing, and professional management. No surprises, no hustle—just quality living.</p>
+                </div>
+                <div class="persona-card">
+                    <h3>Lifestyle Seekers</h3>
+                    <p>Those drawn to Mexico's culture, cuisine, and community. People who value access to great food, art, and authentic experiences alongside professional amenities.</p>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-          <label>Last Name</label>
-          <input type="text" placeholder="Smith" id="lname"/>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 Mi Casa Living. Curated long-term rentals across Mexico.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #999;">For inquiries: contact@micasaliving.com</p>
         </div>
-      </div>
-      <div class="form-group">
-        <label>Email Address</label>
-        <input type="email" placeholder="jane@email.com" id="email"/>
-      </div>
-      <div class="form-group">
-        <label>WhatsApp / Phone (optional)</label>
-        <input type="tel" placeholder="+1 555 000 0000" id="phone"/>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Unit Size</label>
-          <select id="unit">
-            <option value="">Select size...</option>
-            <option>Studio</option>
-            <option>1 Bedroom</option>
-            <option>2 Bedroom</option>
-            <option>3 Bedroom</option>
-            <option>Flexible</option>
-          </select>
+    </footer>
+
+    <!-- Modal for property details -->
+    <div class="modal" id="propertyModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div id="modalBody"></div>
         </div>
-        <div class="form-group">
-          <label>Ideal Move-In</label>
-          <input type="month" id="movein"/>
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Budget (USD/month)</label>
-        <select id="budget">
-          <option value="">Select range...</option>
-          <option>Under $800</option>
-          <option>$800 – $1,200</option>
-          <option>$1,200 – $1,800</option>
-          <option>$1,800 – $2,500</option>
-          <option>$2,500+</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Tell us about yourself & what you're looking for</label>
-        <textarea placeholder="I'm a remote worker relocating from... I need..." id="message"></textarea>
-      </div>
-      <button class="form-submit" onclick="submitForm()">Send Inquiry →</button>
-      <p class="form-note">We typically respond within 24 hours. Your information is never shared with third parties.</p>
     </div>
-    <div class="form-success" id="formSuccess">
-      <div class="form-success-icon">🏡</div>
-      <div class="form-success-title">Inquiry Received!</div>
-      <p class="form-success-sub">Thank you — we'll be in touch within 24 hours with options that match your needs.</p>
-    </div>
-  </div>
-</section>
 
-<!-- FOOTER -->
-<footer>
-  <div>
-    <div class="footer-logo">Mi Casa <span>Living</span></div>
-    <div class="footer-sub">A Grupo Tague Company · San Diego × México</div>
-  </div>
-  <div class="footer-links">
-    <a href="#properties">Properties</a>
-    <a href="#why">Why Us</a>
-    <a href="#story">Our Story</a>
-    <a href="#inquiry">Contact</a>
-  </div>
-  <div class="footer-copy">© 2025 Mi Casa Living. All rights reserved.</div>
-</footer>
+    <script>
+        // Property Data
+        const properties = [
+            {
+                id: 1,
+                name: "Luzia 1 Bedroom Peninsula View",
+                location: "Tijuana",
+                beds: 1,
+                baths: 1,
+                guests: 2,
+                price: "$1,600",
+                short: "A modern 1-bedroom residence inside Luzia, Tijuana's most coveted lifestyle tower at Península shopping center — with sweeping city views from your private terrace.",
+                full: "Wake up inside one of Tijuana's most iconic buildings. Luzia is a 17-story luxury tower designed by acclaimed Mexican architecture firm Taller G, set within the Península lifestyle center — the most complete commercial destination in the city. Your 1-bedroom unit features floor-to-ceiling glass, warm natural finishes in granite and wood, a fully equipped kitchen, and a private terrace with panoramic peninsula views.\n\nAs a resident, you have exclusive access to Luzia's 10 private amenities: infinity pool, jacuzzi, gym, coworking area, pet spa, outdoor cinema, yoga terrace, grill zone, playroom, and a residence kitchen for entertaining. Step outside your door and you have Tijuana's best restaurants, a VIP supermarket, cinemas, a 5-star hotel, and top international brands — all within the Península complex. Fast access to both the San Ysidro and Otay border crossings makes cross-border living effortless.",
+                amenities: ["WiFi", "AC", "Infinity Pool", "Jacuzzi", "Gym", "Coworking", "Pet Spa", "Outdoor Cinema", "Yoga Terrace", "Grill Zone", "Kitchen", "Private Terrace", "24/7 Security", "Covered Parking"]
+            },
+            {
+                id: 2,
+                name: "Lucca Terrace Studio Max",
+                location: "Tijuana",
+                beds: 1,
+                baths: 1,
+                guests: 2,
+                price: "$1,600",
+                short: "A beautifully finished studio at Luca — Tijuana's newest tower inside Península — with generous terrace space, resort-style amenities, and direct access to the city's best lifestyle center.",
+                full: "Luca is the latest addition to the Península lifestyle center, a collaboration between architecture studio Taller G and interior designer Cristina Grappin, developed by Cimbra Capital — one of Baja California's most respected high-end developers. This studio with terrace sits within a 24-level tower featuring 1,200+ m² of exclusive amenities and direct access to the Península commercial plaza.\n\nYour unit arrives fully equipped with integrated kitchen, stove, hood, oven, closets, and a dedicated laundry space. The building amenities set a new standard for Tijuana: pool, swim lane, gym, outdoor yoga space, fire pits, coffee station, game room, coworking, event hall, and a rooftop lounge with panoramic city views. Minutes from the San Ysidro border crossing, Hospital Ángeles, and Tijuana's financial district — this is city living at its finest.",
+                amenities: ["WiFi", "AC", "Pool", "Swim Lane", "Gym", "Outdoor Yoga", "Fire Pits", "Coffee Station", "Game Room", "Coworking", "Event Hall", "Kitchen", "Terrace", "24/7 Security", "Parking"]
+            },
+            {
+                id: 3,
+                name: "Adamant Toreo Studio 5 Plaza View",
+                location: "Tijuana",
+                beds: 1,
+                baths: 1,
+                guests: 2,
+                price: "$1,450",
+                short: "A sleek studio on the 5th floor of Adamant Toreo — an architectural landmark in Tijuana's Zona Dorada — with direct plaza views and a sky-level amenity floor like nothing else in the city.",
+                full: "Adamant Toreo is not just a building — it's an architectural statement. Designed by award-winning firm Mayer Hasbani, its iconic diamond-faceted façade has become one of the most recognized silhouettes on Tijuana's skyline. Built on the site of the historic Plaza de Toros, this 26-story tower sits at the heart of Zona Dorada, steps from the Agua Caliente racetrack, major hospitals, restaurants, and corporate offices.\n\nYour 5th-floor studio looks directly over the plaza — a front-row seat to the energy of Tijuana's most dynamic corridor. But the real headline is the 18th and 19th floor amenity levels: sky bar, sky lounge, pool terrace with sundeck and jacuzzi, gym, dining room, TV room, coworking, fire pit, game room, and guest suites. A 7-minute walk from the CAS visa processing center makes this ideal for Americans navigating cross-border life.",
+                amenities: ["WiFi", "AC", "Sky Pool + Jacuzzi", "Sky Bar", "Sky Lounge", "Gym", "Coworking", "Fire Pit", "Game Room", "Grill Zone", "Kitchen", "Terrace", "24/7 Security", "Parking"]
+            },
+            {
+                id: 4,
+                name: "Adamant Toreo Studio 8 Plaza View",
+                location: "Tijuana",
+                beds: 1,
+                baths: 1,
+                guests: 2,
+                price: "$1,450",
+                short: "An elevated studio on the 8th floor of Adamant Toreo with sweeping plaza views, award-winning architecture, and access to one of Tijuana's most extraordinary amenity decks.",
+                full: "Same iconic building, elevated perspective. From the 8th floor of Adamant Toreo, your plaza view opens up even further — taking in Tijuana's Zona Dorada in full. The building's sculptural torsion design, inspired by the geometry of a diamond, means no two floors look quite the same, and this unit captures one of the building's most desirable vantage points.\n\nAdamant Toreo was recognized with a TITAN Property Award for residential high-rise architecture. Its 200 apartments span 36m² to 160m², with 14 different floor plan distributions across 26 levels. Units come equipped with high-quality finishes, integrated kitchen, and smart layouts designed for modern urban living. The full sky-level amenity floor — pool, jacuzzi, sky bar, gym, coworking, fire pit, game room — is exclusively yours as a resident.",
+                amenities: ["WiFi", "AC", "Sky Pool + Jacuzzi", "Sky Bar", "Sky Lounge", "Gym", "Coworking", "Fire Pit", "Game Room", "Grill Zone", "Kitchen", "Terrace", "24/7 Security", "Parking"]
+            },
+            {
+                id: 5,
+                name: "Distrito Revolución",
+                location: "Tijuana",
+                beds: 1,
+                baths: 1,
+                guests: 2,
+                price: "$1,550",
+                short: "A stylish 1-bedroom in the heart of Tijuana's most culturally vibrant corridor — Revolución — where art, gastronomy, and city energy meet modern residential living.",
+                full: "Live at the center of Tijuana's cultural renaissance. Distrito Revolución places you steps from the city's most celebrated restaurant row, art galleries, craft breweries, and the creative energy that has made Tijuana one of the most talked-about cities in Latin America. This modern 1-bedroom unit combines contemporary design with an unbeatable location — the kind of address that makes daily life feel like an experience.\n\nThe unit features a fully equipped kitchen, private terrace, and AC throughout. Building amenities include a kitchen, terrace, and controlled-access security. Whether you're a remote professional who wants to be within walking distance of great food and culture, or someone relocating from San Diego looking for urban energy just 20 minutes from the border — Distrito Revolución delivers.",
+                amenities: ["WiFi", "AC", "Kitchen", "Terrace", "Controlled Access", "24/7 Security"]
+            },
+            {
+                id: 6,
+                name: "Icon 11 Pool View",
+                location: "Tijuana",
+                beds: 1,
+                baths: 1,
+                guests: 2,
+                price: "$1,450",
+                short: "A bright 1-bedroom at Icon 11 with direct pool views, modern finishes, and a prime Tijuana location — ideal for the remote professional who wants resort-feel living on a long-term lease.",
+                full: "Icon 11 is a contemporary residential tower in one of Tijuana's most connected neighborhoods, offering the kind of amenity-rich lifestyle usually reserved for vacation destinations — but designed for people who actually live and work here. Your 1-bedroom unit looks directly over the building's pool, making it one of the most sought-after views in the building.\n\nThe unit is fully equipped with AC throughout, integrated kitchen, and a terrace for morning coffee or unwinding after work. Building amenities include the pool, gym, and secure 24/7 access. Fast highway connections put the San Ysidro and Otay border crossings within easy reach, making this an exceptional base for anyone living the cross-border lifestyle.",
+                amenities: ["WiFi", "AC", "Pool", "Kitchen", "Terrace", "24/7 Security", "Parking"]
+            },
+            {
+                id: 7,
+                name: "S7ETE Revolución",
+                location: "Tijuana",
+                beds: 1,
+                baths: 1,
+                guests: 2,
+                price: "$1,450",
+                short: "A modern 1-bedroom in one of Tijuana's most exciting new buildings on the Revolución corridor — designed for those who want to be at the center of everything.",
+                full: "S7ETE is a new-generation residential building that takes its cue from Tijuana's most dynamic street. The Revolución corridor has transformed from a tourist strip into one of the most culinarily and culturally exciting addresses in Baja California — home to Michelin-recommended restaurants, rooftop bars, craft cocktail lounges, and the creative scene that has put Tijuana on the world map.\n\nYour 1-bedroom unit at S7ETE features modern finishes, AC throughout, a fully equipped kitchen, and a private terrace. The building offers pool access and 24/7 security. For remote workers, creatives, and professionals who want to live somewhere with genuine energy — not just a convenient location — S7ETE Revolución delivers a lifestyle, not just a lease.",
+                amenities: ["WiFi", "AC", "Pool", "Kitchen", "Terrace", "24/7 Security", "Parking"]
+            },
+            {
+                id: 8,
+                name: "Vinedos del Mar PH",
+                location: "Ensenada",
+                beds: 2,
+                baths: 2,
+                guests: 4,
+                price: "$1,800",
+                short: "A stunning penthouse at Viñedos del Mar — nestled between Ensenada's vineyards and the Pacific — with mountain views, a year-round pool, and the Valle de Guadalupe wine country at your doorstep.",
+                full: "This is what people mean when they say they want to escape. Viñedos del Mar is a premium gated residential community by Fincamex, set in the elevated hills between the entrance to Valle de Guadalupe and the outskirts of Ensenada — with every sunset painting vineyards, mountains, and ocean in the same view. The penthouse takes all of that and elevates it further.\n\nYour 2-bedroom, 2-bathroom penthouse features a private terrace, fully equipped kitchen, AC, and washer/dryer. The gated community includes a year-round outdoor pool, manicured green areas, children's playground, and free private parking. Residents consistently praise the tranquility, safety, and views. You're 7 minutes from Valle de Guadalupe's world-class wineries and restaurants, and within easy reach of Ensenada's waterfront, fish tacos, and craft beer scene. San Miguel Beach is a 10-minute drive.",
+                amenities: ["WiFi", "AC", "Pool", "Kitchen", "Private Terrace", "Washer/Dryer", "Gated Community", "Free Parking", "Mountain & Vineyard Views"]
+            },
+            {
+                id: 9,
+                name: "Vista Vela 3",
+                location: "Los Cabos",
+                beds: 2,
+                baths: 3,
+                guests: 4,
+                price: "$2,150",
+                short: "A spacious 2-bedroom, 3-bathroom residence at Vistavela III by Grupo Velas — one of Los Cabos' most celebrated residential communities — with resort-style amenities and a 10-minute drive to downtown Cabo.",
+                full: "Vistavela III is the latest chapter in Grupo Velas' acclaimed residential series in Los Cabos — a development where modern design meets the natural grandeur of Baja California Sur. Located behind Costco along the Cabo Corridor, this 2-bedroom residence offers generous, contemporary living spaces with high-end finishes and effortless indoor-outdoor flow.\n\nThe community's amenities are resort-class: five swimming pools, a state-of-the-art fitness center, BBQ bar, padel court, lush landscaped gardens, and 24/7 gated security. Downtown Cabo San Lucas and Médano Beach are 10 minutes away. Santa Maria Beach is 10 minutes in the other direction. For families, remote professionals, or anyone wanting the Los Cabos lifestyle on a long-term lease — without short-term rental pricing — this is the opportunity.",
+                amenities: ["WiFi", "AC", "5 Pools", "Gym", "BBQ Bar", "Padel Court", "Gardens", "Kitchen", "Terrace", "24/7 Gated Security", "Parking"]
+            },
+            {
+                id: 10,
+                name: "Vista Vela 3 PH Arch + Ocean View",
+                location: "Los Cabos",
+                beds: 1,
+                baths: 2,
+                guests: 2,
+                price: "$2,000",
+                short: "A rare penthouse 1-bedroom at Vistavela III with one of the most coveted views in all of Los Cabos — the iconic Arch and the Sea of Cortez, framed from your private terrace.",
+                full: "The Arch of Los Cabos is one of the most photographed rock formations in the world — and this is the unit that has it as a daily backdrop. This penthouse 1-bedroom at Vistavela III by Grupo Velas offers an unobstructed view of El Arco and the blue expanse of the Sea of Cortez from your private rooftop terrace, making it one of the most unique long-term rental opportunities in Cabo.\n\nInside, the residence features contemporary design, high-end kitchen finishes, two full bathrooms, and all the sophistication of the Vistavela III development. Access to five swimming pools, a modern fitness center, BBQ bar, padel court, and beautifully landscaped gardens — all within a gated, 24/7 secured community. A 10-minute drive puts you in the center of downtown Cabo, Médano Beach, and everything the Los Cabos lifestyle has to offer. This is not just a place to live. It's a view you'll never get tired of.",
+                amenities: ["WiFi", "AC", "5 Pools", "Gym", "BBQ Bar", "Padel Court", "Gardens", "Kitchen", "Private Rooftop Terrace", "Arch + Ocean Views", "24/7 Gated Security", "Parking"]
+            },
+            {
+                id: 11,
+                name: "Vista Vela 3 Arch + Ocean View",
+                location: "Los Cabos",
+                beds: 3,
+                baths: 4,
+                guests: 6,
+                price: "$2,600",
+                short: "The flagship unit at Vistavela III — a full 3-bedroom, 4-bathroom condo with panoramic Arch and ocean views, spacious entertaining spaces, and the full resort experience of Los Cabos' premier residential community.",
+                full: "For those who want the complete Los Cabos experience without compromise, this 3-bedroom, 4-bathroom residence at Vistavela III delivers. Designed by Grupo Velas with meticulous attention to finishes and layout, this is a home built for living fully — wide open spaces, a terrace that frames the iconic Arch and Sea of Cortez, a fully equipped gourmet kitchen, and room for the whole family or a team of colleagues working remotely.\n\nThe Vistavela III community wraps this unit in resort-class amenities: five pools, a padel court, state-of-the-art gym, BBQ bar, lush gardens, and 24/7 gated security. Owners and residents consistently highlight the quality of life here — the sense of community, the safety, and the beauty of waking up to the Sea of Cortez every morning. Downtown Cabo, Médano Beach, and fine dining are 10 minutes away. This is long-term living at a level that Los Cabos is known for worldwide.",
+                amenities: ["WiFi", "AC", "5 Pools", "Gym", "BBQ Bar", "Padel Court", "Gardens", "Gourmet Kitchen", "Large Terrace", "Arch + Ocean Views", "24/7 Gated Security", "Parking"]
+            },
+            {
+                id: 12,
+                name: "Portica",
+                location: "Tijuana",
+                beds: 1,
+                baths: 1,
+                guests: 2,
+                price: "$1,500",
+                short: "A sophisticated 1-bedroom in Porttica — Tijuana's newest luxury residential development by the award-winning team behind some of Latin America's finest buildings — in the vibrant La Cacho neighborhood.",
+                full: "Porttica is a 220-unit luxury development in the heart of Tijuana's La Cacho neighborhood, conceived by two of the industry's most respected names: Cimbra Capital and Estrategia Urbana — the same team responsible for acclaimed projects across Mexico, the US, and Spain. Interior design by Sofía Aspe, the only Mexican member of the exclusive 1stdibs design group, gives every common space a level of refinement rarely seen in Tijuana.\n\nYour 1-bedroom unit benefits from 850m² of exclusive amenities including a pool, gym, coworking space, playroom, social lounge, and grill area. La Cacho puts you in one of Tijuana's most established and walkable neighborhoods — cafés, restaurants, schools, hospitals, and the border crossing all within minutes. Only 20 minutes from San Ysidro and 30 from CBX, this is premium city living with effortless access to Southern California.",
+                amenities: ["WiFi", "AC", "Pool", "Gym", "Coworking", "Playroom", "Social Lounge", "Grill Area", "Kitchen", "Terrace", "24/7 Security", "Parking"]
+            },
+            {
+                id: 13,
+                name: "Naos",
+                location: "Rosarito",
+                beds: 2,
+                baths: 1,
+                guests: 2,
+                price: "$2,000",
+                short: "A 2-bedroom oceanfront residence at NAOS — Rosarito's most design-forward beachfront development — with Pacific views, resort amenities, and the kind of coastal living typically found in Malibu or Cabo.",
+                full: "NAOS is not your typical Rosarito development. Designed by renowned interior designer Kalinka Mikel and built by Estrategia Urbana — a developer with 25+ years and 70+ completed projects across Mexico and the US — NAOS is set directly on the sand at the northern end of Rosarito, where the Pacific stretches unobstructed to the horizon. The building's clean architectural lines, warm contemporary interiors, and resort-class amenities represent a new standard for coastal Baja living.\n\nYour 2-bedroom residence includes a private terrace with Pacific or mountain views, fully equipped kitchen, and high-speed internet. Community amenities are curated around the coastal lifestyle: indoor and outdoor pools overlooking the ocean, a state-of-the-art fitness center, high-tech coworking lounge, fire pits, and hot tubs. Gated entry with 24/7 monitored security and CCTV. Just 45 minutes from San Diego via San Ysidro, and an easy drive from Tijuana and Ensenada — this is the Baja coast at its most elevated.",
+                amenities: ["WiFi", "AC", "Indoor + Outdoor Pools", "Hot Tubs", "Gym", "Coworking Lounge", "Fire Pits", "Kitchen", "Ocean-View Terrace", "24/7 Gated Security", "CCTV", "Parking"]
+            },
+            {
+                id: 14,
+                name: "The Wave",
+                location: "Rosarito",
+                beds: 1,
+                baths: 1,
+                guests: 2,
+                price: "$1,600",
+                short: "A stunning oceanfront 1-bedroom at The Wavve — Baja's top-selling coastal development — with panoramic Pacific views, a private balcony, and resort amenities 25 minutes from the San Diego border.",
+                full: "The Wavve has quickly become the most talked-about residential development on the Baja coast — and for good reason. Designed by acclaimed firms Taller G Arquitectos and Kalinka Mikel, every residence in this 296-unit twin-tower community features ocean views, sleek minimalist interiors, and access to a curated amenity collection that would be exceptional anywhere in the world.\n\nYour 1-bedroom unit includes a private balcony with panoramic Pacific views, a fully equipped kitchen, and high-speed internet. The building's amenities elevate every day: outdoor and indoor pools with jacuzzi, fully equipped fitness center, coworking lounge, outdoor cinema, fire pits, grilling cabanas, sports bar, padel and pickleball courts, kids' playground, and pet grooming station. Located at Km 18 of the scenic Tijuana–Ensenada highway in Punta Bandera — 25 minutes from San Ysidro, 10 minutes from Rosarito, and surrounded by some of Baja's best surf breaks and Valle de Guadalupe wine country.",
+                amenities: ["WiFi", "AC", "Indoor + Outdoor Pools", "Jacuzzi", "Gym", "Coworking", "Outdoor Cinema", "Fire Pits", "Grill Cabanas", "Sports Bar", "Padel Court", "Pet Grooming", "Kitchen", "Ocean-View Balcony", "24/7 Security"]
+            },
+            {
+                id: 15,
+                name: "Ovva Studio View",
+                location: "Tijuana",
+                beds: 1,
+                baths: 1,
+                guests: 2,
+                price: "$1,300",
+                short: "A striking studio in OVVA — Tijuana's most architecturally ambitious mixed-use development in Zona Río — with city views, a 4,000m² central garden, and an amenity collection that redefines what a building can be.",
+                full: "OVVA is not just a building. It's a master plan. Conceived by award-winning architect Mayer Hasbani and developed by Milk Life Investments, OVVA rises across two iconic residential towers and a corporate tower in Tijuana's Zona Río — the city's most cosmopolitan corridor — unified by a monumental elevated garden that serves as the heart of the community.\n\nYour studio is part of this landmark project, featuring warm natural finishes, floor-to-ceiling light, a city view, and a fully equipped integrated kitchen. But the real draw is the 5,500m² of amenities — both inside and out — that OVVA offers its residents: a 4,000m² Big Green central garden, meditation garden, infinity pool with sundeck, rooftop sky terrace with fire pits, BBQ pods, padel court, playground, pet park, kids club, cinema, private lounge, social salon, sport bar with game room, yoga studio, pilates studio, and a fully equipped gym. This is an address in Zona Río — close to hospitals, shopping, restaurants, and the international border — that delivers far more than the rent suggests.",
+                amenities: ["WiFi", "AC", "Infinity Pool", "4,000m² Garden", "Rooftop Terrace", "Padel Court", "Gym", "Yoga + Pilates Studios", "Cinema", "Sport Bar", "Kids Club", "Pet Park", "BBQ Pods", "Kitchen", "Balcony", "24/7 Security", "Parking"]
+            },
+            {
+                id: 16,
+                name: "Shake Studio View",
+                location: "Tijuana",
+                beds: 1,
+                baths: 1,
+                guests: 2,
+                price: "$1,300",
+                short: "A modern studio with city views in one of Tijuana's newest residential buildings — thoughtfully designed for the remote professional who wants quality, connectivity, and value in one address.",
+                full: "Shake is a contemporary residential development in Tijuana designed for the new generation of urban residents — remote workers, young professionals, and long-term expats who want a smart, well-connected home at an accessible price point. The studio layout is efficient and modern, with city views, a fully equipped kitchen, AC throughout, and high-speed WiFi.\n\nBuilding amenities include pool access, terrace, and 24/7 controlled access — the essentials done well. Located in a strategic Tijuana corridor with fast access to main roads, the international border crossing, and the city's growing restaurant and cultural scene. For remote workers relocating from Southern California, Shake offers an honest combination of quality and value that is genuinely hard to find at this price point in Tijuana's rapidly appreciating market.",
+                amenities: ["WiFi", "AC", "Pool", "Kitchen", "Terrace", "Controlled Access", "24/7 Security", "Parking"]
+            },
+            {
+                id: 17,
+                name: "Bahia Principe",
+                location: "Tulum",
+                beds: 4,
+                baths: 5,
+                guests: 8,
+                price: "TBD",
+                short: "An extraordinary 4-bedroom residence inside the legendary Bahía Príncipe Tulum Country Club — a 741-acre gated estate with a PGA golf course, Caribbean beach access, multiple infinity pools, and the full luxury of the Riviera Maya.",
+                full: "This is a category apart. The Tulum Country Club by Bahía Príncipe Residents is one of the most extraordinary residential addresses in all of Mexico — a 741-acre private estate carved from the Mayan jungle along the Caribbean coast, offering a lifestyle that defies comparison. As a resident of this community, you live within one of the region's premier private developments, surrounded by tropical greenery, cenotes, lakes, and the gentle soundtrack of the Caribbean.\n\nYour 4-bedroom, 5-bathroom residence offers spacious interiors, private terrace, and access to the full Country Club ecosystem: 4 infinity pools, PGA-certified 27-hole golf course (the first in Latin America), panoramic gym, yoga area, BBQ terrace, business center, game room, playground, and rest areas with hammocks and sunbeds. As a resident, you receive preferential access — including beach and hotel amenities — at the adjoining Grand Bahía Príncipe and Luxury Bahía Príncipe Sian Ka'an hotels, as well as the exclusive KAY Beach Club. Tulum archaeological ruins, Playa del Carmen, and world-famous cenotes are all within easy reach.",
+                amenities: ["WiFi", "AC", "4 Infinity Pools + Rooftop Pool", "27-Hole PGA Golf Course", "Gym", "Yoga Area", "BBQ Terrace", "Business Center", "Game Room", "Playground", "Beach Club Access", "Hotel Amenity Access", "Kitchen", "Private Terrace", "24/7 Gated Security", "Parking"]
+            }
+        ];
 
-<script>
-  // Scroll animations with stagger
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('visible'), i * 80);
-      }
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+        // Render properties
+        function renderProperties(filter = 'all') {
+            const grid = document.getElementById('propertiesGrid');
+            grid.innerHTML = '';
 
-  // Form submit
-  function submitForm() {
-    const fname = document.getElementById('fname').value;
-    const email = document.getElementById('email').value;
-    if (!fname || !email) {
-      alert('Please fill in your name and email to continue.');
-      return;
-    }
-    document.getElementById('inquiryForm').style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
-  }
-</script>
+            const filtered = filter === 'all' 
+                ? properties 
+                : properties.filter(p => p.location === filter);
+
+            filtered.forEach(property => {
+                const card = document.createElement('div');
+                card.className = 'property-card';
+                card.onclick = () => openModal(property);
+                
+                card.innerHTML = `
+                    <div class="property-image">🏠</div>
+                    <div class="property-info">
+                        <div class="property-location">${property.location}</div>
+                        <div class="property-title">${property.name}</div>
+                        <div class="property-description">${property.short}</div>
+                        <div class="property-specs">
+                            <div class="spec">🛏️ ${property.beds} bed${property.beds > 1 ? 's' : ''}</div>
+                            <div class="spec">🚿 ${property.baths} bath${property.baths > 1 ? 's' : ''}</div>
+                            <div class="spec">👥 ${property.guests}</div>
+                        </div>
+                        <div class="property-price">${property.price}/mo</div>
+                        <a href="#" class="view-btn">View Details →</a>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Filter function
+        function filterByLocation(location) {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            renderProperties(location);
+        }
+
+        // Modal functions
+        function openModal(property) {
+            const modal = document.getElementById('propertyModal');
+            const body = document.getElementById('modalBody');
+            
+            body.innerHTML = `
+                <h2 class="modal-title">${property.name}</h2>
+                <div class="modal-meta">
+                    <div class="modal-meta-item">📍 <strong>${property.location}</strong></div>
+                    <div class="modal-meta-item">💵 <strong>${property.price}/month</strong></div>
+                    <div class="modal-meta-item">🛏️ <strong>${property.beds} Bed${property.beds > 1 ? 's' : ''}</strong></div>
+                    <div class="modal-meta-item">🚿 <strong>${property.baths} Bath${property.baths > 1 ? 's' : ''}</strong></div>
+                    <div class="modal-meta-item">👥 <strong>Up to ${property.guests}</strong></div>
+                </div>
+                <div class="modal-description">${property.full.replace(/\n/g, '<br><br>')}</div>
+                <div class="amenities">
+                    <h4>Amenities & Features</h4>
+                    <div class="amenities-list">
+                        ${property.amenities.map(a => `<span class="amenity-tag">${a}</span>`).join('')}
+                    </div>
+                </div>
+                <p style="margin-top: 2rem; color: #999; font-size: 0.9rem;">
+                    Interested? Contact us at contact@micasaliving.com or visit our office in Tijuana.
+                </p>
+            `;
+            
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('propertyModal').classList.remove('active');
+        }
+
+        // Close modal on background click
+        document.getElementById('propertyModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
+        // Initial render
+        renderProperties();
+    </script>
 </body>
 </html>
