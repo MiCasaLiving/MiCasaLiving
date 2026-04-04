@@ -148,11 +148,31 @@
             border: 1px solid #e0e0e0;
             transition: all 0.3s;
             cursor: pointer;
+            position: relative;
         }
 
         .property-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .property-tags {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            z-index: 10;
+        }
+
+        .property-tag {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .property-image {
@@ -345,6 +365,21 @@
             color: #1a1a1a;
         }
 
+        .modal-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-tag {
+            background: #f0f0f0;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
         .modal-description {
             color: #666;
             line-height: 1.8;
@@ -479,6 +514,7 @@
                 price: "$1,600",
                 short: "A modern 1-bedroom residence inside Luzia, Tijuana's most coveted lifestyle tower at Península shopping center — with sweeping city views from your private terrace.",
                 full: "Wake up inside one of Tijuana's most iconic buildings. Luzia is a 17-story luxury tower designed by acclaimed Mexican architecture firm Taller G, set within the Península lifestyle center — the most complete commercial destination in the city. Your 1-bedroom unit features floor-to-ceiling glass, warm natural finishes in granite and wood, a fully equipped kitchen, and a private terrace with panoramic peninsula views.\n\nAs a resident, you have exclusive access to Luzia's 10 private amenities: infinity pool, jacuzzi, gym, coworking area, pet spa, outdoor cinema, yoga terrace, grill zone, playroom, and a residence kitchen for entertaining. Step outside your door and you have Tijuana's best restaurants, a VIP supermarket, cinemas, a 5-star hotel, and top international brands — all within the Península complex. Fast access to both the San Ysidro and Otay border crossings makes cross-border living effortless.",
+                tags: ["🟢 Available", "🏙 City Center"],
                 amenities: ["WiFi", "AC", "Infinity Pool", "Jacuzzi", "Gym", "Coworking", "Pet Spa", "Outdoor Cinema", "Yoga Terrace", "Grill Zone", "Kitchen", "Private Terrace", "24/7 Security", "Covered Parking"]
             },
             {
@@ -491,6 +527,7 @@
                 price: "$1,600",
                 short: "A beautifully finished studio at Luca — Tijuana's newest tower inside Península — with generous terrace space, resort-style amenities, and direct access to the city's best lifestyle center.",
                 full: "Luca is the latest addition to the Península lifestyle center, a collaboration between architecture studio Taller G and interior designer Cristina Grappin, developed by Cimbra Capital — one of Baja California's most respected high-end developers. This studio with terrace sits within a 24-level tower featuring 1,200+ m² of exclusive amenities and direct access to the Península commercial plaza.\n\nYour unit arrives fully equipped with integrated kitchen, stove, hood, oven, closets, and a dedicated laundry space. The building amenities set a new standard for Tijuana: pool, swim lane, gym, outdoor yoga space, fire pits, coffee station, game room, coworking, event hall, and a rooftop lounge with panoramic city views. Minutes from the San Ysidro border crossing, Hospital Ángeles, and Tijuana's financial district — this is city living at its finest.",
+                tags: ["🟢 Available", "🏙 City Center"],
                 amenities: ["WiFi", "AC", "Pool", "Swim Lane", "Gym", "Outdoor Yoga", "Fire Pits", "Coffee Station", "Game Room", "Coworking", "Event Hall", "Kitchen", "Terrace", "24/7 Security", "Parking"]
             },
             {
@@ -503,6 +540,7 @@
                 price: "$1,450",
                 short: "A sleek studio on the 5th floor of Adamant Toreo — an architectural landmark in Tijuana's Zona Dorada — with direct plaza views and a sky-level amenity floor like nothing else in the city.",
                 full: "Adamant Toreo is not just a building — it's an architectural statement. Designed by award-winning firm Mayer Hasbani, its iconic diamond-faceted façade has become one of the most recognized silhouettes on Tijuana's skyline. Built on the site of the historic Plaza de Toros, this 26-story tower sits at the heart of Zona Dorada, steps from the Agua Caliente racetrack, major hospitals, restaurants, and corporate offices.\n\nYour 5th-floor studio looks directly over the plaza — a front-row seat to the energy of Tijuana's most dynamic corridor. But the real headline is the 18th and 19th floor amenity levels: sky bar, sky lounge, pool terrace with sundeck and jacuzzi, gym, dining room, TV room, coworking, fire pit, game room, and guest suites. A 7-minute walk from the CAS visa processing center makes this ideal for Americans navigating cross-border life.",
+                tags: ["🟢 Available", "🏙 City Center"],
                 amenities: ["WiFi", "AC", "Sky Pool + Jacuzzi", "Sky Bar", "Sky Lounge", "Gym", "Coworking", "Fire Pit", "Game Room", "Grill Zone", "Kitchen", "Terrace", "24/7 Security", "Parking"]
             },
             {
@@ -515,6 +553,7 @@
                 price: "$1,450",
                 short: "An elevated studio on the 8th floor of Adamant Toreo with sweeping plaza views, award-winning architecture, and access to one of Tijuana's most extraordinary amenity decks.",
                 full: "Same iconic building, elevated perspective. From the 8th floor of Adamant Toreo, your plaza view opens up even further — taking in Tijuana's Zona Dorada in full. The building's sculptural torsion design, inspired by the geometry of a diamond, means no two floors look quite the same, and this unit captures one of the building's most desirable vantage points.\n\nAdamant Toreo was recognized with a TITAN Property Award for residential high-rise architecture. Its 200 apartments span 36m² to 160m², with 14 different floor plan distributions across 26 levels. Units come equipped with high-quality finishes, integrated kitchen, and smart layouts designed for modern urban living. The full sky-level amenity floor — pool, jacuzzi, sky bar, gym, coworking, fire pit, game room — is exclusively yours as a resident.",
+                tags: ["🟢 Available", "🏙 City Center"],
                 amenities: ["WiFi", "AC", "Sky Pool + Jacuzzi", "Sky Bar", "Sky Lounge", "Gym", "Coworking", "Fire Pit", "Game Room", "Grill Zone", "Kitchen", "Terrace", "24/7 Security", "Parking"]
             },
             {
@@ -527,6 +566,7 @@
                 price: "$1,550",
                 short: "A stylish 1-bedroom in the heart of Tijuana's most culturally vibrant corridor — Revolución — where art, gastronomy, and city energy meet modern residential living.",
                 full: "Live at the center of Tijuana's cultural renaissance. Distrito Revolución places you steps from the city's most celebrated restaurant row, art galleries, craft breweries, and the creative energy that has made Tijuana one of the most talked-about cities in Latin America. This modern 1-bedroom unit combines contemporary design with an unbeatable location — the kind of address that makes daily life feel like an experience.\n\nThe unit features a fully equipped kitchen, private terrace, and AC throughout. Building amenities include a kitchen, terrace, and controlled-access security. Whether you're a remote professional who wants to be within walking distance of great food and culture, or someone relocating from San Diego looking for urban energy just 20 minutes from the border — Distrito Revolución delivers.",
+                tags: ["🟢 Available", "🏙 City Center"],
                 amenities: ["WiFi", "AC", "Kitchen", "Terrace", "Controlled Access", "24/7 Security"]
             },
             {
@@ -539,6 +579,7 @@
                 price: "$1,450",
                 short: "A bright 1-bedroom at Icon 11 with direct pool views, modern finishes, and a prime Tijuana location — ideal for the remote professional who wants resort-feel living on a long-term lease.",
                 full: "Icon 11 is a contemporary residential tower in one of Tijuana's most connected neighborhoods, offering the kind of amenity-rich lifestyle usually reserved for vacation destinations — but designed for people who actually live and work here. Your 1-bedroom unit looks directly over the building's pool, making it one of the most sought-after views in the building.\n\nThe unit is fully equipped with AC throughout, integrated kitchen, and a terrace for morning coffee or unwinding after work. Building amenities include the pool, gym, and secure 24/7 access. Fast highway connections put the San Ysidro and Otay border crossings within easy reach, making this an exceptional base for anyone living the cross-border lifestyle.",
+                tags: ["🟢 Available"],
                 amenities: ["WiFi", "AC", "Pool", "Kitchen", "Terrace", "24/7 Security", "Parking"]
             },
             {
@@ -551,6 +592,7 @@
                 price: "$1,450",
                 short: "A modern 1-bedroom in one of Tijuana's most exciting new buildings on the Revolución corridor — designed for those who want to be at the center of everything.",
                 full: "S7ETE is a new-generation residential building that takes its cue from Tijuana's most dynamic street. The Revolución corridor has transformed from a tourist strip into one of the most culinarily and culturally exciting addresses in Baja California — home to Michelin-recommended restaurants, rooftop bars, craft cocktail lounges, and the creative scene that has put Tijuana on the world map.\n\nYour 1-bedroom unit at S7ETE features modern finishes, AC throughout, a fully equipped kitchen, and a private terrace. The building offers pool access and 24/7 security. For remote workers, creatives, and professionals who want to live somewhere with genuine energy — not just a convenient location — S7ETE Revolución delivers a lifestyle, not just a lease.",
+                tags: ["🟢 Available", "🏙 City Center"],
                 amenities: ["WiFi", "AC", "Pool", "Kitchen", "Terrace", "24/7 Security", "Parking"]
             },
             {
@@ -563,6 +605,7 @@
                 price: "$1,800",
                 short: "A stunning penthouse at Viñedos del Mar — nestled between Ensenada's vineyards and the Pacific — with mountain views, a year-round pool, and the Valle de Guadalupe wine country at your doorstep.",
                 full: "This is what people mean when they say they want to escape. Viñedos del Mar is a premium gated residential community by Fincamex, set in the elevated hills between the entrance to Valle de Guadalupe and the outskirts of Ensenada — with every sunset painting vineyards, mountains, and ocean in the same view. The penthouse takes all of that and elevates it further.\n\nYour 2-bedroom, 2-bathroom penthouse features a private terrace, fully equipped kitchen, AC, and washer/dryer. The gated community includes a year-round outdoor pool, manicured green areas, children's playground, and free private parking. Residents consistently praise the tranquility, safety, and views. You're 7 minutes from Valle de Guadalupe's world-class wineries and restaurants, and within easy reach of Ensenada's waterfront, fish tacos, and craft beer scene. San Miguel Beach is a 10-minute drive.",
+                tags: ["🟢 Available", "🌊 Oceanfront", "🌊 OceanView"],
                 amenities: ["WiFi", "AC", "Pool", "Kitchen", "Private Terrace", "Washer/Dryer", "Gated Community", "Free Parking", "Mountain & Vineyard Views"]
             },
             {
@@ -575,6 +618,7 @@
                 price: "$2,150",
                 short: "A spacious 2-bedroom, 3-bathroom residence at Vistavela III by Grupo Velas — one of Los Cabos' most celebrated residential communities — with resort-style amenities and a 10-minute drive to downtown Cabo.",
                 full: "Vistavela III is the latest chapter in Grupo Velas' acclaimed residential series in Los Cabos — a development where modern design meets the natural grandeur of Baja California Sur. Located behind Costco along the Cabo Corridor, this 2-bedroom residence offers generous, contemporary living spaces with high-end finishes and effortless indoor-outdoor flow.\n\nThe community's amenities are resort-class: five swimming pools, a state-of-the-art fitness center, BBQ bar, padel court, lush landscaped gardens, and 24/7 gated security. Downtown Cabo San Lucas and Médano Beach are 10 minutes away. Santa Maria Beach is 10 minutes in the other direction. For families, remote professionals, or anyone wanting the Los Cabos lifestyle on a long-term lease — without short-term rental pricing — this is the opportunity.",
+                tags: ["🟢 Available", "🌊 OceanView"],
                 amenities: ["WiFi", "AC", "5 Pools", "Gym", "BBQ Bar", "Padel Court", "Gardens", "Kitchen", "Terrace", "24/7 Gated Security", "Parking"]
             },
             {
@@ -587,6 +631,7 @@
                 price: "$2,000",
                 short: "A rare penthouse 1-bedroom at Vistavela III with one of the most coveted views in all of Los Cabos — the iconic Arch and the Sea of Cortez, framed from your private terrace.",
                 full: "The Arch of Los Cabos is one of the most photographed rock formations in the world — and this is the unit that has it as a daily backdrop. This penthouse 1-bedroom at Vistavela III by Grupo Velas offers an unobstructed view of El Arco and the blue expanse of the Sea of Cortez from your private rooftop terrace, making it one of the most unique long-term rental opportunities in Cabo.\n\nInside, the residence features contemporary design, high-end kitchen finishes, two full bathrooms, and all the sophistication of the Vistavela III development. Access to five swimming pools, a modern fitness center, BBQ bar, padel court, and beautifully landscaped gardens — all within a gated, 24/7 secured community. A 10-minute drive puts you in the center of downtown Cabo, Médano Beach, and everything the Los Cabos lifestyle has to offer. This is not just a place to live. It's a view you'll never get tired of.",
+                tags: ["⭐️ Most Popular", "🌊 OceanView"],
                 amenities: ["WiFi", "AC", "5 Pools", "Gym", "BBQ Bar", "Padel Court", "Gardens", "Kitchen", "Private Rooftop Terrace", "Arch + Ocean Views", "24/7 Gated Security", "Parking"]
             },
             {
@@ -599,6 +644,7 @@
                 price: "$2,600",
                 short: "The flagship unit at Vistavela III — a full 3-bedroom, 4-bathroom condo with panoramic Arch and ocean views, spacious entertaining spaces, and the full resort experience of Los Cabos' premier residential community.",
                 full: "For those who want the complete Los Cabos experience without compromise, this 3-bedroom, 4-bathroom residence at Vistavela III delivers. Designed by Grupo Velas with meticulous attention to finishes and layout, this is a home built for living fully — wide open spaces, a terrace that frames the iconic Arch and Sea of Cortez, a fully equipped gourmet kitchen, and room for the whole family or a team of colleagues working remotely.\n\nThe Vistavela III community wraps this unit in resort-class amenities: five pools, a padel court, state-of-the-art gym, BBQ bar, lush gardens, and 24/7 gated security. Owners and residents consistently highlight the quality of life here — the sense of community, the safety, and the beauty of waking up to the Sea of Cortez every morning. Downtown Cabo, Médano Beach, and fine dining are 10 minutes away. This is long-term living at a level that Los Cabos is known for worldwide.",
+                tags: ["🟡 Leasing Soon", "🌊 OceanView"],
                 amenities: ["WiFi", "AC", "5 Pools", "Gym", "BBQ Bar", "Padel Court", "Gardens", "Gourmet Kitchen", "Large Terrace", "Arch + Ocean Views", "24/7 Gated Security", "Parking"]
             },
             {
@@ -611,6 +657,7 @@
                 price: "$1,500",
                 short: "A sophisticated 1-bedroom in Porttica — Tijuana's newest luxury residential development by the award-winning team behind some of Latin America's finest buildings — in the vibrant La Cacho neighborhood.",
                 full: "Porttica is a 220-unit luxury development in the heart of Tijuana's La Cacho neighborhood, conceived by two of the industry's most respected names: Cimbra Capital and Estrategia Urbana — the same team responsible for acclaimed projects across Mexico, the US, and Spain. Interior design by Sofía Aspe, the only Mexican member of the exclusive 1stdibs design group, gives every common space a level of refinement rarely seen in Tijuana.\n\nYour 1-bedroom unit benefits from 850m² of exclusive amenities including a pool, gym, coworking space, playroom, social lounge, and grill area. La Cacho puts you in one of Tijuana's most established and walkable neighborhoods — cafés, restaurants, schools, hospitals, and the border crossing all within minutes. Only 20 minutes from San Ysidro and 30 from CBX, this is premium city living with effortless access to Southern California.",
+                tags: ["🟢 Available", "🏙 City Center"],
                 amenities: ["WiFi", "AC", "Pool", "Gym", "Coworking", "Playroom", "Social Lounge", "Grill Area", "Kitchen", "Terrace", "24/7 Security", "Parking"]
             },
             {
@@ -623,6 +670,7 @@
                 price: "$2,000",
                 short: "A 2-bedroom oceanfront residence at NAOS — Rosarito's most design-forward beachfront development — with Pacific views, resort amenities, and the kind of coastal living typically found in Malibu or Cabo.",
                 full: "NAOS is not your typical Rosarito development. Designed by renowned interior designer Kalinka Mikel and built by Estrategia Urbana — a developer with 25+ years and 70+ completed projects across Mexico and the US — NAOS is set directly on the sand at the northern end of Rosarito, where the Pacific stretches unobstructed to the horizon. The building's clean architectural lines, warm contemporary interiors, and resort-class amenities represent a new standard for coastal Baja living.\n\nYour 2-bedroom residence includes a private terrace with Pacific or mountain views, fully equipped kitchen, and high-speed internet. Community amenities are curated around the coastal lifestyle: indoor and outdoor pools overlooking the ocean, a state-of-the-art fitness center, high-tech coworking lounge, fire pits, and hot tubs. Gated entry with 24/7 monitored security and CCTV. Just 45 minutes from San Diego via San Ysidro, and an easy drive from Tijuana and Ensenada — this is the Baja coast at its most elevated.",
+                tags: ["⭐️ Most Popular", "🌊 Oceanfront", "🌊 OceanView"],
                 amenities: ["WiFi", "AC", "Indoor + Outdoor Pools", "Hot Tubs", "Gym", "Coworking Lounge", "Fire Pits", "Kitchen", "Ocean-View Terrace", "24/7 Gated Security", "CCTV", "Parking"]
             },
             {
@@ -635,6 +683,7 @@
                 price: "$1,600",
                 short: "A stunning oceanfront 1-bedroom at The Wavve — Baja's top-selling coastal development — with panoramic Pacific views, a private balcony, and resort amenities 25 minutes from the San Diego border.",
                 full: "The Wavve has quickly become the most talked-about residential development on the Baja coast — and for good reason. Designed by acclaimed firms Taller G Arquitectos and Kalinka Mikel, every residence in this 296-unit twin-tower community features ocean views, sleek minimalist interiors, and access to a curated amenity collection that would be exceptional anywhere in the world.\n\nYour 1-bedroom unit includes a private balcony with panoramic Pacific views, a fully equipped kitchen, and high-speed internet. The building's amenities elevate every day: outdoor and indoor pools with jacuzzi, fully equipped fitness center, coworking lounge, outdoor cinema, fire pits, grilling cabanas, sports bar, padel and pickleball courts, kids' playground, and pet grooming station. Located at Km 18 of the scenic Tijuana–Ensenada highway in Punta Bandera — 25 minutes from San Ysidro, 10 minutes from Rosarito, and surrounded by some of Baja's best surf breaks and Valle de Guadalupe wine country.",
+                tags: ["🟢 Available", "🌊 Oceanfront", "🌊 OceanView"],
                 amenities: ["WiFi", "AC", "Indoor + Outdoor Pools", "Jacuzzi", "Gym", "Coworking", "Outdoor Cinema", "Fire Pits", "Grill Cabanas", "Sports Bar", "Padel Court", "Pet Grooming", "Kitchen", "Ocean-View Balcony", "24/7 Security"]
             },
             {
@@ -647,6 +696,7 @@
                 price: "$1,300",
                 short: "A striking studio in OVVA — Tijuana's most architecturally ambitious mixed-use development in Zona Río — with city views, a 4,000m² central garden, and an amenity collection that redefines what a building can be.",
                 full: "OVVA is not just a building. It's a master plan. Conceived by award-winning architect Mayer Hasbani and developed by Milk Life Investments, OVVA rises across two iconic residential towers and a corporate tower in Tijuana's Zona Río — the city's most cosmopolitan corridor — unified by a monumental elevated garden that serves as the heart of the community.\n\nYour studio is part of this landmark project, featuring warm natural finishes, floor-to-ceiling light, a city view, and a fully equipped integrated kitchen. But the real draw is the 5,500m² of amenities — both inside and out — that OVVA offers its residents: a 4,000m² Big Green central garden, meditation garden, infinity pool with sundeck, rooftop sky terrace with fire pits, BBQ pods, padel court, playground, pet park, kids club, cinema, private lounge, social salon, sport bar with game room, yoga studio, pilates studio, and a fully equipped gym. This is an address in Zona Río — close to hospitals, shopping, restaurants, and the international border — that delivers far more than the rent suggests.",
+                tags: ["🟢 Available", "🏙 City Center"],
                 amenities: ["WiFi", "AC", "Infinity Pool", "4,000m² Garden", "Rooftop Terrace", "Padel Court", "Gym", "Yoga + Pilates Studios", "Cinema", "Sport Bar", "Kids Club", "Pet Park", "BBQ Pods", "Kitchen", "Balcony", "24/7 Security", "Parking"]
             },
             {
@@ -659,6 +709,7 @@
                 price: "$1,300",
                 short: "A modern studio with city views in one of Tijuana's newest residential buildings — thoughtfully designed for the remote professional who wants quality, connectivity, and value in one address.",
                 full: "Shake is a contemporary residential development in Tijuana designed for the new generation of urban residents — remote workers, young professionals, and long-term expats who want a smart, well-connected home at an accessible price point. The studio layout is efficient and modern, with city views, a fully equipped kitchen, AC throughout, and high-speed WiFi.\n\nBuilding amenities include pool access, terrace, and 24/7 controlled access — the essentials done well. Located in a strategic Tijuana corridor with fast access to main roads, the international border crossing, and the city's growing restaurant and cultural scene. For remote workers relocating from Southern California, Shake offers an honest combination of quality and value that is genuinely hard to find at this price point in Tijuana's rapidly appreciating market.",
+                tags: ["🟢 Available", "🏙 City Center"],
                 amenities: ["WiFi", "AC", "Pool", "Kitchen", "Terrace", "Controlled Access", "24/7 Security", "Parking"]
             },
             {
@@ -671,6 +722,7 @@
                 price: "TBD",
                 short: "An extraordinary 4-bedroom residence inside the legendary Bahía Príncipe Tulum Country Club — a 741-acre gated estate with a PGA golf course, Caribbean beach access, multiple infinity pools, and the full luxury of the Riviera Maya.",
                 full: "This is a category apart. The Tulum Country Club by Bahía Príncipe Residents is one of the most extraordinary residential addresses in all of Mexico — a 741-acre private estate carved from the Mayan jungle along the Caribbean coast, offering a lifestyle that defies comparison. As a resident of this community, you live within one of the region's premier private developments, surrounded by tropical greenery, cenotes, lakes, and the gentle soundtrack of the Caribbean.\n\nYour 4-bedroom, 5-bathroom residence offers spacious interiors, private terrace, and access to the full Country Club ecosystem: 4 infinity pools, PGA-certified 27-hole golf course (the first in Latin America), panoramic gym, yoga area, BBQ terrace, business center, game room, playground, and rest areas with hammocks and sunbeds. As a resident, you receive preferential access — including beach and hotel amenities — at the adjoining Grand Bahía Príncipe and Luxury Bahía Príncipe Sian Ka'an hotels, as well as the exclusive KAY Beach Club. Tulum archaeological ruins, Playa del Carmen, and world-famous cenotes are all within easy reach.",
+                tags: ["🟢 Available", "🌴 Riviera Maya"],
                 amenities: ["WiFi", "AC", "4 Infinity Pools + Rooftop Pool", "27-Hole PGA Golf Course", "Gym", "Yoga Area", "BBQ Terrace", "Business Center", "Game Room", "Playground", "Beach Club Access", "Hotel Amenity Access", "Kitchen", "Private Terrace", "24/7 Gated Security", "Parking"]
             }
         ];
@@ -689,7 +741,10 @@
                 card.className = 'property-card';
                 card.onclick = () => openModal(property);
                 
+                const tagsHTML = property.tags.map(tag => `<div class="property-tag">${tag}</div>`).join('');
+                
                 card.innerHTML = `
+                    <div class="property-tags">${tagsHTML}</div>
                     <div class="property-image">🏠</div>
                     <div class="property-info">
                         <div class="property-location">${property.location}</div>
@@ -722,8 +777,11 @@
             const modal = document.getElementById('propertyModal');
             const body = document.getElementById('modalBody');
             
+            const tagsHTML = property.tags.map(tag => `<div class="modal-tag">${tag}</div>`).join('');
+            
             body.innerHTML = `
                 <h2 class="modal-title">${property.name}</h2>
+                <div class="modal-tags">${tagsHTML}</div>
                 <div class="modal-meta">
                     <div class="modal-meta-item">📍 <strong>${property.location}</strong></div>
                     <div class="modal-meta-item">💵 <strong>${property.price}/month</strong></div>
