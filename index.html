@@ -1692,16 +1692,18 @@
       }
     });
 
-    // Filter property cards
+    // Filter property cards - use visibility instead of display for anchor tags
     const propCards = document.querySelectorAll('.prop-card');
     let visibleCount = 0;
     propCards.forEach(card => {
       const cardLocation = card.getAttribute('data-location');
       if (location === 'all' || cardLocation === location) {
         card.style.display = 'block';
+        card.style.visibility = 'visible';
         visibleCount++;
       } else {
         card.style.display = 'none';
+        card.style.visibility = 'hidden';
       }
     });
 
