@@ -547,6 +547,220 @@
       .form-row { grid-template-columns: 1fr; }
       footer { padding: 2rem 1.5rem; font-size: 0.8rem; }
     }
+
+    /* ── MODAL ── */
+    .property-modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(28, 21, 16, 0.8);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      overflow-y: auto;
+      padding: 2rem;
+    }
+    .property-modal.active {
+      display: block;
+    }
+    .modal-content {
+      background: var(--warm-white);
+      border-radius: 8px;
+      max-width: 900px;
+      margin: 2rem auto;
+      overflow: hidden;
+    }
+    .modal-header {
+      position: relative;
+      height: 400px;
+      background: var(--sand);
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2px;
+    }
+    .modal-img-main {
+      grid-row: span 2;
+      overflow: hidden;
+    }
+    .modal-img-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .modal-img-side {
+      overflow: hidden;
+    }
+    .modal-img-side img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .modal-close-btn {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      background: var(--dark-trans);
+      color: white;
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+    }
+    .modal-close-btn:hover {
+      background: rgba(28, 21, 16, 0.95);
+      transform: scale(1.1);
+    }
+    .modal-body {
+      padding: 3rem;
+    }
+    .modal-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: var(--dark);
+      margin-bottom: 1rem;
+    }
+    .modal-tag {
+      display: inline-block;
+      background: var(--terra);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 3px;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 2rem;
+    }
+    .modal-meta {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--sand);
+    }
+    .modal-meta-item {
+      text-align: center;
+    }
+    .modal-meta-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    .modal-meta-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--dark);
+    }
+    .modal-description {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 1rem;
+      margin-bottom: 3rem;
+    }
+    .modal-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .modal-gallery-item {
+      aspect-ratio: 1;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+    .modal-gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .modal-gallery-item:hover img {
+      transform: scale(1.08);
+    }
+    .modal-amenities {
+      background: var(--sand);
+      padding: 2rem;
+      border-radius: 4px;
+      margin-bottom: 2rem;
+    }
+    .modal-amenities h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--dark);
+      margin-bottom: 1.5rem;
+    }
+    .amenities-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    .amenity-item {
+      color: var(--dark);
+      font-size: 0.95rem;
+    }
+    .amenity-item::before {
+      content: "•";
+      color: var(--terra);
+      margin-right: 0.8rem;
+      font-weight: bold;
+    }
+    .modal-cta {
+      background: var(--terra);
+      color: white;
+      padding: 1.2rem 2.4rem;
+      border-radius: 3px;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 24px rgba(196, 98, 58, 0.2);
+    }
+    .modal-cta:hover {
+      background: var(--terra-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(196, 98, 58, 0.3);
+    }
+    @media (max-width: 768px) {
+      .modal-meta {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+      .modal-gallery {
+        grid-template-columns: 1fr;
+      }
+      .modal-body {
+        padding: 1.5rem;
+      }
+      .modal-title {
+        font-size: 1.6rem;
+      }
+      .modal-header {
+        grid-template-columns: 1fr;
+        height: auto;
+        aspect-ratio: 16 / 9;
+      }
+      .modal-img-main {
+        grid-row: span 1;
+      }
+      .modal-img-side {
+        display: none;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -683,7 +897,7 @@
     <a href="#inquiry" class="btn-ghost">Request full portfolio →</a>
   </div>
   <div class="prop-grid">
-    <div class="prop-card fade-up">
+    <div class="prop-card fade-up" onclick="openPropertyModal('Luzia 1 Bedroom Peninsula View')" style="cursor: pointer;">
       <div class="prop-card-img">
         <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=500&q=80" alt="Luzia 1 Bedroom"/>
         <span class="prop-tag">🟢 Available</span>
@@ -700,7 +914,7 @@
         <p style="font-size: 0.9rem; color: var(--muted); margin-top: 0.8rem; line-height: 1.5;">Modern 1-bedroom in Tijuana's most coveted lifestyle tower at Península shopping center — sweeping city views from your private terrace.</p>
       </div>
     </div>
-    <div class="prop-card fade-up">
+    <div class="prop-card fade-up" onclick="openPropertyModal('Lucca Terrace Studio Max')" style="cursor: pointer;">
       <div class="prop-card-img">
         <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=500&q=80" alt="Lucca Terrace Studio"/>
         <span class="prop-tag">Available Soon</span>
@@ -717,7 +931,7 @@
         <p style="font-size: 0.9rem; color: var(--muted); margin-top: 0.8rem; line-height: 1.5;">Beautifully finished studio at Luca — Tijuana's newest tower inside Península — with generous terrace space and resort-style amenities.</p>
       </div>
     </div>
-    <div class="prop-card fade-up">
+    <div class="prop-card fade-up" onclick="openPropertyModal('Adamant Toreo Studio 5 Plaza View')" style="cursor: pointer;">
       <div class="prop-card-img">
         <img src="https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?w=500&q=80" alt="Adamant Toreo Studio 5"/>
         <span class="prop-tag">Available Soon</span>
@@ -734,7 +948,7 @@
         <p style="font-size: 0.9rem; color: var(--muted); margin-top: 0.8rem; line-height: 1.5;">Sleek studio on the 5th floor of Adamant Toreo — an architectural landmark with direct plaza views and sky-level amenity floor.</p>
       </div>
     </div>
-    <div class="prop-card fade-up">
+    <div class="prop-card fade-up" onclick="openPropertyModal('Adamant Toreo Studio 8 Plaza View')" style="cursor: pointer;">
       <div class="prop-card-img">
         <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=500&q=80" alt="Adamant Toreo Studio 8"/>
         <span class="prop-tag">Rented</span>
@@ -751,7 +965,7 @@
         <p style="font-size: 0.9rem; color: var(--muted); margin-top: 0.8rem; line-height: 1.5;">Elevated studio on the 8th floor with sweeping plaza views, award-winning architecture, and access to Tijuana's most extraordinary amenity deck.</p>
       </div>
     </div>
-    <div class="prop-card fade-up">
+    <div class="prop-card fade-up" onclick="openPropertyModal('Distrito Revolución')" style="cursor: pointer;">
       <div class="prop-card-img">
         <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=500&q=80" alt="Distrito Revolución"/>
         <span class="prop-tag">Rented</span>
@@ -768,7 +982,7 @@
         <p style="font-size: 0.9rem; color: var(--muted); margin-top: 0.8rem; line-height: 1.5;">Stylish 1-bedroom in the heart of Tijuana's most culturally vibrant corridor — where art, gastronomy, and city energy meet.</p>
       </div>
     </div>
-    <div class="prop-card fade-up">
+    <div class="prop-card fade-up" onclick="openPropertyModal('Icon 11 Pool View')" style="cursor: pointer;">
       <div class="prop-card-img">
         <img src="https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?w=500&q=80" alt="Icon 11 Pool View"/>
         <span class="prop-tag">Rented</span>
@@ -785,7 +999,7 @@
         <p style="font-size: 0.9rem; color: var(--muted); margin-top: 0.8rem; line-height: 1.5;">Bright 1-bedroom with direct pool views, modern finishes — ideal for the remote professional who wants resort-feel living.</p>
       </div>
     </div>
-    <div class="prop-card fade-up">
+    <div class="prop-card fade-up" onclick="openPropertyModal('S7ETE Revolución')" style="cursor: pointer;">
       <div class="prop-card-img">
         <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=500&q=80" alt="S7ETE Revolución"/>
         <span class="prop-tag">Rented</span>
@@ -802,7 +1016,7 @@
         <p style="font-size: 0.9rem; color: var(--muted); margin-top: 0.8rem; line-height: 1.5;">Modern 1-bedroom in one of Tijuana's most exciting new buildings on the Revolución corridor — at the center of everything.</p>
       </div>
     </div>
-    <div class="prop-card fade-up">
+    <div class="prop-card fade-up" onclick="openPropertyModal('Viñedos del Mar PH')" style="cursor: pointer;">
       <div class="prop-card-img">
         <img src="https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?w=500&q=80" alt="Viñedos del Mar"/>
         <span class="prop-tag">Rented</span>
@@ -819,7 +1033,7 @@
         <p style="font-size: 0.9rem; color: var(--muted); margin-top: 0.8rem; line-height: 1.5;">Stunning penthouse nestled between Ensenada's vineyards and the Pacific — mountain views, year-round pool, wine country at your doorstep.</p>
       </div>
     </div>
-    <div class="prop-card fade-up">
+    <div class="prop-card fade-up" onclick="openPropertyModal('Vista Vela 3')" style="cursor: pointer;">
       <div class="prop-card-img">
         <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=500&q=80" alt="Vista Vela 3"/>
         <span class="prop-tag">Rented</span>
@@ -836,7 +1050,7 @@
         <p style="font-size: 0.9rem; color: var(--muted); margin-top: 0.8rem; line-height: 1.5;">Spacious 2-bedroom, 3-bathroom residence at Vistavela III — one of Los Cabos' most celebrated communities with resort-style amenities.</p>
       </div>
     </div>
-    <div class="prop-card fade-up">
+    <div class="prop-card fade-up" onclick="openPropertyModal('Vista Vela 3 PH Arch + Ocean View')" style="cursor: pointer;">
       <div class="prop-card-img">
         <img src="https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?w=500&q=80" alt="Vista Vela 3 PH"/>
         <span class="prop-tag">Rented</span>
@@ -853,7 +1067,7 @@
         <p style="font-size: 0.9rem; color: var(--muted); margin-top: 0.8rem; line-height: 1.5;">Rare penthouse 1-bedroom with one of the most coveted views — the iconic Arch and Sea of Cortez framed from your private terrace.</p>
       </div>
     </div>
-    <div class="prop-card fade-up">
+    <div class="prop-card fade-up" onclick="openPropertyModal('Vista Vela 3 Arch + Ocean View')" style="cursor: pointer;">
       <div class="prop-card-img">
         <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=500&q=80" alt="Vista Vela 3 Arch"/>
         <span class="prop-tag">Ocean View</span>
@@ -870,7 +1084,7 @@
         <p style="font-size: 0.9rem; color: var(--muted); margin-top: 0.8rem; line-height: 1.5;">Flagship 3-bedroom, 4-bathroom condo with panoramic Arch and ocean views, spacious entertaining spaces — the full resort experience.</p>
       </div>
     </div>
-    <div class="prop-card fade-up">
+    <div class="prop-card fade-up" onclick="openPropertyModal('Portica')" style="cursor: pointer;">
       <div class="prop-card-img">
         <img src="https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?w=500&q=80" alt="Portica"/>
         <span class="prop-tag">Ocean View</span>
@@ -887,7 +1101,7 @@
         <p style="font-size: 0.9rem; color: var(--muted); margin-top: 0.8rem; line-height: 1.5;">Sophisticated 1-bedroom in Tijuana's newest luxury development by award-winning architects — in the vibrant La Cacho neighborhood.</p>
       </div>
     </div>
-    <div class="prop-card fade-up">
+    <div class="prop-card fade-up" onclick="openPropertyModal('Naos')" style="cursor: pointer;">
       <div class="prop-card-img">
         <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=500&q=80" alt="Naos"/>
         <span class="prop-tag">Coming in 2027</span>
@@ -904,7 +1118,7 @@
         <p style="font-size: 0.9rem; color: var(--muted); margin-top: 0.8rem; line-height: 1.5;">2-bedroom oceanfront residence at Rosarito's most design-forward beachfront development — Pacific views, resort amenities, coastal living.</p>
       </div>
     </div>
-    <div class="prop-card fade-up">
+    <div class="prop-card fade-up" onclick="openPropertyModal('The Wave')" style="cursor: pointer;">
       <div class="prop-card-img">
         <img src="https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?w=500&q=80" alt="The Wave"/>
         <span class="prop-tag">Coming in 2027</span>
@@ -921,7 +1135,7 @@
         <p style="font-size: 0.9rem; color: var(--muted); margin-top: 0.8rem; line-height: 1.5;">Stunning oceanfront 1-bedroom at Baja's top-selling coastal development — panoramic Pacific views, resort amenities, 25 min from San Diego.</p>
       </div>
     </div>
-    <div class="prop-card fade-up">
+    <div class="prop-card fade-up" onclick="openPropertyModal('Ovva Studio View')" style="cursor: pointer;">
       <div class="prop-card-img">
         <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=500&q=80" alt="Ovva Studio"/>
         <span class="prop-tag">Coming in 2027</span>
@@ -938,7 +1152,7 @@
         <p style="font-size: 0.9rem; color: var(--muted); margin-top: 0.8rem; line-height: 1.5;">Striking studio in Tijuana's most architecturally ambitious development — city views, 4,000m² central garden, world-class amenities.</p>
       </div>
     </div>
-    <div class="prop-card fade-up">
+    <div class="prop-card fade-up" onclick="openPropertyModal('Shake Studio View')" style="cursor: pointer;">
       <div class="prop-card-img">
         <img src="https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?w=500&q=80" alt="Shake Studio"/>
         <span class="prop-tag">Coming in 2027</span>
@@ -955,7 +1169,7 @@
         <p style="font-size: 0.9rem; color: var(--muted); margin-top: 0.8rem; line-height: 1.5;">Modern studio with city views in one of Tijuana's newest buildings — designed for the remote professional seeking quality and value.</p>
       </div>
     </div>
-    <div class="prop-card fade-up">
+    <div class="prop-card fade-up" onclick="openPropertyModal('Bahia Príncipe')" style="cursor: pointer;">
       <div class="prop-card-img">
         <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=500&q=80" alt="Bahia Príncipe"/>
         <span class="prop-tag">Coming in 2027</span>
@@ -1189,6 +1403,264 @@
     document.getElementById('inquiryForm').style.display = 'none';
     document.getElementById('formSuccess').style.display = 'block';
   }
+
+  <!-- Property Detail Modal -->
+  <div class="property-modal" id="propertyModal">
+    <div class="modal-content">
+      <button class="modal-close-btn" onclick="closePropertyModal()">&times;</button>
+      <div class="modal-header">
+        <div class="modal-img-main">
+          <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=85" alt="Main property view" id="modalMainImg"/>
+        </div>
+        <div class="modal-img-side">
+          <img src="https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?w=400&q=85" alt="Property detail"/>
+        </div>
+      </div>
+      <div class="modal-body">
+        <h2 class="modal-title" id="modalTitle">Property Name</h2>
+        <span class="modal-tag" id="modalTag">Available</span>
+        
+        <div class="modal-meta">
+          <div class="modal-meta-item">
+            <div class="modal-meta-label">Bedrooms</div>
+            <div class="modal-meta-value" id="modalBeds">1</div>
+          </div>
+          <div class="modal-meta-item">
+            <div class="modal-meta-label">Bathrooms</div>
+            <div class="modal-meta-value" id="modalBaths">1</div>
+          </div>
+          <div class="modal-meta-item">
+            <div class="modal-meta-label">Location</div>
+            <div class="modal-meta-value" id="modalLocation">City</div>
+          </div>
+          <div class="modal-meta-item">
+            <div class="modal-meta-label">Monthly Price</div>
+            <div class="modal-meta-value" id="modalPrice">$1,500</div>
+          </div>
+        </div>
+
+        <div class="modal-description" id="modalDescription">
+          Full property description goes here.
+        </div>
+
+        <div class="modal-gallery">
+          <div class="modal-gallery-item">
+            <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400&q=85" alt="Gallery 1"/>
+          </div>
+          <div class="modal-gallery-item">
+            <img src="https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?w=400&q=85" alt="Gallery 2"/>
+          </div>
+          <div class="modal-gallery-item">
+            <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400&q=85" alt="Gallery 3"/>
+          </div>
+        </div>
+
+        <div class="modal-amenities">
+          <h4>Amenities & Features</h4>
+          <div class="amenities-grid" id="modalAmenities">
+            <div class="amenity-item">WiFi</div>
+            <div class="amenity-item">AC</div>
+            <div class="amenity-item">Pool</div>
+            <div class="amenity-item">Gym</div>
+          </div>
+        </div>
+
+        <button class="modal-cta" onclick="contactProperty()">Inquire About This Unit</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Property full data with descriptions
+    const propertyDetails = {
+      'Luzia 1 Bedroom Peninsula View': {
+        tag: 'Available Soon',
+        beds: 1,
+        baths: 1,
+        location: 'Tijuana',
+        price: '$1,600',
+        description: 'Wake up inside one of Tijuana\'s most iconic buildings. Luzia is a 17-story luxury tower designed by acclaimed Mexican architecture firm Taller G, set within the Península lifestyle center — the most complete commercial destination in the city. Your 1-bedroom unit features floor-to-ceiling glass, warm natural finishes in granite and wood, a fully equipped kitchen, and a private terrace with panoramic peninsula views.\n\nAs a resident, you have exclusive access to Luzia\'s 10 private amenities: infinity pool, jacuzzi, gym, coworking area, pet spa, outdoor cinema, yoga terrace, grill zone, playroom, and a residence kitchen for entertaining. Step outside your door and you have Tijuana\'s best restaurants, a VIP supermarket, cinemas, a 5-star hotel, and top international brands — all within the Península complex. Fast access to both the San Ysidro and Otay border crossings makes cross-border living effortless.',
+        amenities: ['WiFi', 'AC', 'Infinity Pool', 'Jacuzzi', 'Gym', 'Coworking', 'Pet Spa', 'Outdoor Cinema', 'Yoga Terrace', 'Grill Zone', 'Kitchen', 'Private Terrace', '24/7 Security', 'Covered Parking']
+      },
+      'Lucca Terrace Studio Max': {
+        tag: 'Available Soon',
+        beds: 1,
+        baths: 1,
+        location: 'Tijuana',
+        price: '$1,600',
+        description: 'Luca is the latest addition to the Península lifestyle center, a collaboration between architecture studio Taller G and interior designer Cristina Grappin, developed by Cimbra Capital — one of Baja California\'s most respected high-end developers. This studio with terrace sits within a 24-level tower featuring 1,200+ m² of exclusive amenities and direct access to the Península commercial plaza.\n\nYour unit arrives fully equipped with integrated kitchen, stove, hood, oven, closets, and a dedicated laundry space. The building amenities set a new standard for Tijuana: pool, swim lane, gym, outdoor yoga space, fire pits, coffee station, game room, coworking, event hall, and a rooftop lounge with panoramic city views. Minutes from the San Ysidro border crossing, Hospital Ángeles, and Tijuana\'s financial district — this is city living at its finest.',
+        amenities: ['WiFi', 'AC', 'Pool', 'Swim Lane', 'Gym', 'Outdoor Yoga', 'Fire Pits', 'Coffee Station', 'Game Room', 'Coworking', 'Event Hall', 'Kitchen', 'Terrace', '24/7 Security', 'Parking']
+      },
+      'Adamant Toreo Studio 5 Plaza View': {
+        tag: 'Rented',
+        beds: 1,
+        baths: 1,
+        location: 'Tijuana',
+        price: '$1,450',
+        description: 'Adamant Toreo is not just a building — it\'s an architectural statement. Designed by award-winning firm Mayer Hasbani, its iconic diamond-faceted façade has become one of the most recognized silhouettes on Tijuana\'s skyline. Built on the site of the historic Plaza de Toros, this 26-story tower sits at the heart of Zona Dorada, steps from the Agua Caliente racetrack, major hospitals, restaurants, and corporate offices.\n\nYour 5th-floor studio looks directly over the plaza — a front-row seat to the energy of Tijuana\'s most dynamic corridor. But the real headline is the 18th and 19th floor amenity levels: sky bar, sky lounge, pool terrace with sundeck and jacuzzi, gym, dining room, TV room, coworking, fire pit, game room, and guest suites. A 7-minute walk from the CAS visa processing center makes this ideal for Americans navigating cross-border life.',
+        amenities: ['WiFi', 'AC', 'Sky Pool + Jacuzzi', 'Sky Bar', 'Sky Lounge', 'Gym', 'Coworking', 'Fire Pit', 'Game Room', 'Grill Zone', 'Kitchen', 'Terrace', '24/7 Security', 'Parking']
+      },
+      'Adamant Toreo Studio 8 Plaza View': {
+        tag: 'Rented',
+        beds: 1,
+        baths: 1,
+        location: 'Tijuana',
+        price: '$1,450',
+        description: 'Same iconic building, elevated perspective. From the 8th floor of Adamant Toreo, your plaza view opens up even further — taking in Tijuana\'s Zona Dorada in full. The building\'s sculptural torsion design, inspired by the geometry of a diamond, means no two floors look quite the same, and this unit captures one of the building\'s most desirable vantage points.\n\nAdamant Toreo was recognized with a TITAN Property Award for residential high-rise architecture. Its 200 apartments span 36m² to 160m², with 14 different floor plan distributions across 26 levels. Units come equipped with high-quality finishes, integrated kitchen, and smart layouts designed for modern urban living. The full sky-level amenity floor — pool, jacuzzi, sky bar, gym, coworking, fire pit, game room — is exclusively yours as a resident.',
+        amenities: ['WiFi', 'AC', 'Sky Pool + Jacuzzi', 'Sky Bar', 'Sky Lounge', 'Gym', 'Coworking', 'Fire Pit', 'Game Room', 'Grill Zone', 'Kitchen', 'Terrace', '24/7 Security', 'Parking']
+      },
+      'Distrito Revolución': {
+        tag: 'Rented',
+        beds: 1,
+        baths: 1,
+        location: 'Tijuana',
+        price: '$1,550',
+        description: 'Live at the center of Tijuana\'s cultural renaissance. Distrito Revolución places you steps from the city\'s most celebrated restaurant row, art galleries, craft breweries, and the creative energy that has made Tijuana one of the most talked-about cities in Latin America. This modern 1-bedroom unit combines contemporary design with an unbeatable location — the kind of address that makes daily life feel like an experience.\n\nThe unit features a fully equipped kitchen, private terrace, and AC throughout. Building amenities include a kitchen, terrace, and controlled-access security. Whether you\'re a remote professional who wants to be within walking distance of great food and culture, or someone relocating from San Diego looking for urban energy just 20 minutes from the border — Distrito Revolución delivers.',
+        amenities: ['WiFi', 'AC', 'Kitchen', 'Terrace', 'Controlled Access', '24/7 Security']
+      },
+      'Icon 11 Pool View': {
+        tag: 'Rented',
+        beds: 1,
+        baths: 1,
+        location: 'Tijuana',
+        price: '$1,450',
+        description: 'Icon 11 is a contemporary residential tower in one of Tijuana\'s most connected neighborhoods, offering the kind of amenity-rich lifestyle usually reserved for vacation destinations — but designed for people who actually live and work here. Your 1-bedroom unit looks directly over the building\'s pool, making it one of the most sought-after views in the building.\n\nThe unit is fully equipped with AC throughout, integrated kitchen, and a terrace for morning coffee or unwinding after work. Building amenities include the pool, gym, and secure 24/7 access. Fast highway connections put the San Ysidro and Otay border crossings within easy reach, making this an exceptional base for anyone living the cross-border lifestyle.',
+        amenities: ['WiFi', 'AC', 'Pool', 'Kitchen', 'Terrace', '24/7 Security', 'Parking']
+      },
+      'S7ETE Revolución': {
+        tag: 'Rented',
+        beds: 1,
+        baths: 1,
+        location: 'Tijuana',
+        price: '$1,450',
+        description: 'S7ETE is a new-generation residential building that takes its cue from Tijuana\'s most dynamic street. The Revolución corridor has transformed from a tourist strip into one of the most culinarily and culturally exciting addresses in Baja California — home to Michelin-recommended restaurants, rooftop bars, craft cocktail lounges, and the creative scene that has put Tijuana on the world map.\n\nYour 1-bedroom unit at S7ETE features modern finishes, AC throughout, a fully equipped kitchen, and a private terrace. The building offers pool access and 24/7 security. For remote workers, creatives, and professionals who want to live somewhere with genuine energy — not just a convenient location — S7ETE Revolución delivers a lifestyle, not just a lease.',
+        amenities: ['WiFi', 'AC', 'Pool', 'Kitchen', 'Terrace', '24/7 Security', 'Parking']
+      },
+      'Viñedos del Mar PH': {
+        tag: 'Rented',
+        beds: 2,
+        baths: 2,
+        location: 'Ensenada',
+        price: '$1,800',
+        description: 'This is what people mean when they say they want to escape. Viñedos del Mar is a premium gated residential community by Fincamex, set in the elevated hills between the entrance to Valle de Guadalupe and the outskirts of Ensenada — with every sunset painting vineyards, mountains, and ocean in the same view. The penthouse takes all of that and elevates it further.\n\nYour 2-bedroom, 2-bathroom penthouse features a private terrace, fully equipped kitchen, AC, and washer/dryer. The gated community includes a year-round outdoor pool, manicured green areas, children\'s playground, and free private parking. Residents consistently praise the tranquility, safety, and views. You\'re 7 minutes from Valle de Guadalupe\'s world-class wineries and restaurants, and within easy reach of Ensenada\'s waterfront, fish tacos, and craft beer scene. San Miguel Beach is a 10-minute drive.',
+        amenities: ['WiFi', 'AC', 'Pool', 'Kitchen', 'Private Terrace', 'Washer/Dryer', 'Gated Community', 'Free Parking', 'Mountain & Vineyard Views']
+      },
+      'Vista Vela 3': {
+        tag: 'Rented',
+        beds: 2,
+        baths: 3,
+        location: 'Los Cabos',
+        price: '$2,150',
+        description: 'Vistavela III is the latest chapter in Grupo Velas\' acclaimed residential series in Los Cabos — a development where modern design meets the natural grandeur of Baja California Sur. Located behind Costco along the Cabo Corridor, this 2-bedroom residence offers generous, contemporary living spaces with high-end finishes and effortless indoor-outdoor flow.\n\nThe community\'s amenities are resort-class: five swimming pools, a state-of-the-art fitness center, BBQ bar, padel court, lush landscaped gardens, and 24/7 gated security. Downtown Cabo San Lucas and Médano Beach are 10 minutes away. Santa Maria Beach is 10 minutes in the other direction. For families, remote professionals, or anyone wanting the Los Cabos lifestyle on a long-term lease — without short-term rental pricing — this is the opportunity.',
+        amenities: ['WiFi', 'AC', '5 Pools', 'Gym', 'BBQ Bar', 'Padel Court', 'Gardens', 'Kitchen', 'Terrace', '24/7 Gated Security', 'Parking']
+      },
+      'Vista Vela 3 PH Arch + Ocean View': {
+        tag: 'Ocean View',
+        beds: 1,
+        baths: 2,
+        location: 'Los Cabos',
+        price: '$2,000',
+        description: 'The Arch of Los Cabos is one of the most photographed rock formations in the world — and this is the unit that has it as a daily backdrop. This penthouse 1-bedroom at Vistavela III by Grupo Velas offers an unobstructed view of El Arco and the blue expanse of the Sea of Cortez from your private rooftop terrace, making it one of the most unique long-term rental opportunities in Cabo.\n\nInside, the residence features contemporary design, high-end kitchen finishes, two full bathrooms, and all the sophistication of the Vistavela III development. Access to five swimming pools, a modern fitness center, BBQ bar, padel court, and beautifully landscaped gardens — all within a gated, 24/7 secured community. A 10-minute drive puts you in the center of downtown Cabo, Médano Beach, and everything the Los Cabos lifestyle has to offer. This is not just a place to live. It\'s a view you\'ll never get tired of.',
+        amenities: ['WiFi', 'AC', '5 Pools', 'Gym', 'BBQ Bar', 'Padel Court', 'Gardens', 'Kitchen', 'Private Rooftop Terrace', 'Arch + Ocean Views', '24/7 Gated Security', 'Parking']
+      },
+      'Vista Vela 3 Arch + Ocean View': {
+        tag: 'Ocean View',
+        beds: 3,
+        baths: 4,
+        location: 'Los Cabos',
+        price: '$2,600',
+        description: 'For those who want the complete Los Cabos experience without compromise, this 3-bedroom, 4-bathroom residence at Vistavela III delivers. Designed by Grupo Velas with meticulous attention to finishes and layout, this is a home built for living fully — wide open spaces, a terrace that frames the iconic Arch and Sea of Cortez, a fully equipped gourmet kitchen, and room for the whole family or a team of colleagues working remotely.\n\nThe Vistavela III community wraps this unit in resort-class amenities: five pools, a padel court, state-of-the-art gym, BBQ bar, lush gardens, and 24/7 gated security. Owners and residents consistently highlight the quality of life here — the sense of community, the safety, and the beauty of waking up to the Sea of Cortez every morning. Downtown Cabo, Médano Beach, and fine dining are 10 minutes away. This is long-term living at a level that Los Cabos is known for worldwide.',
+        amenities: ['WiFi', 'AC', '5 Pools', 'Gym', 'BBQ Bar', 'Padel Court', 'Gardens', 'Gourmet Kitchen', 'Large Terrace', 'Arch + Ocean Views', '24/7 Gated Security', 'Parking']
+      },
+      'Portica': {
+        tag: 'Coming in 2027',
+        beds: 1,
+        baths: 1,
+        location: 'Tijuana',
+        price: '$1,500',
+        description: 'Porttica is a 220-unit luxury development in the heart of Tijuana\'s La Cacho neighborhood, conceived by two of the industry\'s most respected names: Cimbra Capital and Estrategia Urbana — the same team responsible for acclaimed projects across Mexico, the US, and Spain. Interior design by Sofía Aspe, the only Mexican member of the exclusive 1stdibs design group, gives every common space a level of refinement rarely seen in Tijuana.\n\nYour 1-bedroom unit benefits from 850m² of exclusive amenities including a pool, gym, coworking space, playroom, social lounge, and grill area. La Cacho puts you in one of Tijuana\'s most established and walkable neighborhoods — cafés, restaurants, schools, hospitals, and the border crossing all within minutes. Only 20 minutes from San Ysidro and 30 from CBX, this is premium city living with effortless access to Southern California.',
+        amenities: ['WiFi', 'AC', 'Pool', 'Gym', 'Coworking', 'Playroom', 'Social Lounge', 'Grill Area', 'Kitchen', 'Terrace', '24/7 Security', 'Parking']
+      },
+      'Naos': {
+        tag: 'Coming in 2027',
+        beds: 2,
+        baths: 1,
+        location: 'Rosarito',
+        price: '$2,000',
+        description: 'NAOS is not your typical Rosarito development. Designed by renowned interior designer Kalinka Mikel and built by Estrategia Urbana — a developer with 25+ years and 70+ completed projects across Mexico and the US — NAOS is set directly on the sand at the northern end of Rosarito, where the Pacific stretches unobstructed to the horizon. The building\'s clean architectural lines, warm contemporary interiors, and resort-class amenities represent a new standard for coastal Baja living.\n\nYour 2-bedroom residence includes a private terrace with Pacific or mountain views, fully equipped kitchen, and high-speed internet. Community amenities are curated around the coastal lifestyle: indoor and outdoor pools overlooking the ocean, a state-of-the-art fitness center, high-tech coworking lounge, fire pits, and hot tubs. Gated entry with 24/7 monitored security and CCTV. Just 45 minutes from San Diego via San Ysidro, and an easy drive from Tijuana and Ensenada — this is the Baja coast at its most elevated.',
+        amenities: ['WiFi', 'AC', 'Indoor + Outdoor Pools', 'Hot Tubs', 'Gym', 'Coworking Lounge', 'Fire Pits', 'Kitchen', 'Ocean-View Terrace', '24/7 Gated Security', 'CCTV', 'Parking']
+      },
+      'The Wave': {
+        tag: 'Coming in 2027',
+        beds: 1,
+        baths: 1,
+        location: 'Rosarito',
+        price: '$1,600',
+        description: 'The Wavve has quickly become the most talked-about residential development on the Baja coast — and for good reason. Designed by acclaimed firms Taller G Arquitectos and Kalinka Mikel, every residence in this 296-unit twin-tower community features ocean views, sleek minimalist interiors, and access to a curated amenity collection that would be exceptional anywhere in the world.\n\nYour 1-bedroom unit includes a private balcony with panoramic Pacific views, a fully equipped kitchen, and high-speed internet. The building\'s amenities elevate every day: outdoor and indoor pools with jacuzzi, fully equipped fitness center, coworking lounge, outdoor cinema, fire pits, grilling cabanas, sports bar, padel and pickleball courts, kids\' playground, and pet grooming station. Located at Km 18 of the scenic Tijuana–Ensenada highway in Punta Bandera — 25 minutes from San Ysidro, 10 minutes from Rosarito, and surrounded by some of Baja\'s best surf breaks and Valle de Guadalupe wine country.',
+        amenities: ['WiFi', 'AC', 'Indoor + Outdoor Pools', 'Jacuzzi', 'Gym', 'Coworking', 'Outdoor Cinema', 'Fire Pits', 'Grill Cabanas', 'Sports Bar', 'Padel Court', 'Pet Grooming', 'Kitchen', 'Ocean-View Balcony', '24/7 Security']
+      },
+      'Ovva Studio View': {
+        tag: 'Coming in 2027',
+        beds: 1,
+        baths: 1,
+        location: 'Tijuana',
+        price: '$1,300',
+        description: 'OVVA is not just a building. It\'s a master plan. Conceived by award-winning architect Mayer Hasbani and developed by Milk Life Investments, OVVA rises across two iconic residential towers and a corporate tower in Tijuana\'s Zona Río — the city\'s most cosmopolitan corridor — unified by a monumental elevated garden that serves as the heart of the community.\n\nYour studio is part of this landmark project, featuring warm natural finishes, floor-to-ceiling light, a city view, and a fully equipped integrated kitchen. But the real draw is the 5,500m² of amenities — both inside and out — that OVVA offers its residents: a 4,000m² Big Green central garden, meditation garden, infinity pool with sundeck, rooftop sky terrace with fire pits, BBQ pods, padel court, playground, pet park, kids club, cinema, private lounge, social salon, sport bar with game room, yoga studio, pilates studio, and a fully equipped gym. This is an address in Zona Río — close to hospitals, shopping, restaurants, and the international border — that delivers far more than the rent suggests.',
+        amenities: ['WiFi', 'AC', 'Infinity Pool', '4,000m² Garden', 'Rooftop Terrace', 'Padel Court', 'Gym', 'Yoga + Pilates Studios', 'Cinema', 'Sport Bar', 'Kids Club', 'Pet Park', 'BBQ Pods', 'Kitchen', 'Balcony', '24/7 Security', 'Parking']
+      },
+      'Shake Studio View': {
+        tag: 'Coming in 2027',
+        beds: 1,
+        baths: 1,
+        location: 'Tijuana',
+        price: '$1,300',
+        description: 'Shake is a contemporary residential development in Tijuana designed for the new generation of urban residents — remote workers, young professionals, and long-term expats who want a smart, well-connected home at an accessible price point. The studio layout is efficient and modern, with city views, a fully equipped kitchen, AC throughout, and high-speed WiFi.\n\nBuilding amenities include pool access, terrace, and 24/7 controlled access — the essentials done well. Located in a strategic Tijuana corridor with fast access to main roads, the international border crossing, and the city\'s growing restaurant and cultural scene. For remote workers relocating from Southern California, Shake offers an honest combination of quality and value that is genuinely hard to find at this price point in Tijuana\'s rapidly appreciating market.',
+        amenities: ['WiFi', 'AC', 'Pool', 'Kitchen', 'Terrace', 'Controlled Access', '24/7 Security', 'Parking']
+      },
+      'Bahia Príncipe': {
+        tag: 'Coming in 2028',
+        beds: 4,
+        baths: 5,
+        location: 'Tulum',
+        price: 'Contact',
+        description: 'This is a category apart. The Tulum Country Club by Bahía Príncipe Residents is one of the most extraordinary residential addresses in all of Mexico — a 741-acre private estate carved from the Mayan jungle along the Caribbean coast, offering a lifestyle that defies comparison. As a resident of this community, you live within one of the region\'s premier private developments, surrounded by tropical greenery, cenotes, lakes, and the gentle soundtrack of the Caribbean.\n\nYour 4-bedroom, 5-bathroom residence offers spacious interiors, private terrace, and access to the full Country Club ecosystem: 4 infinity pools, PGA-certified 27-hole golf course (the first in Latin America), panoramic gym, yoga area, BBQ terrace, business center, game room, playground, and rest areas with hammocks and sunbeds. As a resident, you receive preferential access — including beach and hotel amenities — at the adjoining Grand Bahía Príncipe and Luxury Bahía Príncipe Sian Ka\'an hotels, as well as the exclusive KAY Beach Club. Tulum archaeological ruins, Playa del Carmen, and world-famous cenotes are all within easy reach.',
+        amenities: ['WiFi', 'AC', '4 Infinity Pools + Rooftop Pool', '27-Hole PGA Golf Course', 'Gym', 'Yoga Area', 'BBQ Terrace', 'Business Center', 'Game Room', 'Playground', 'Beach Club Access', 'Hotel Amenity Access', 'Kitchen', 'Private Terrace', '24/7 Gated Security', 'Parking']
+      }
+    };
+
+    function openPropertyModal(propertyName) {
+      const data = propertyDetails[propertyName];
+      if (!data) return;
+      
+      document.getElementById('modalTitle').textContent = propertyName;
+      document.getElementById('modalTag').textContent = data.tag;
+      document.getElementById('modalBeds').textContent = data.beds;
+      document.getElementById('modalBaths').textContent = data.baths;
+      document.getElementById('modalLocation').textContent = data.location;
+      document.getElementById('modalPrice').textContent = data.price;
+      document.getElementById('modalDescription').innerHTML = data.description.replace(/\n\n/g, '</p><p>').split('<p>').map(p => p ? '<p>' + p + '</p>' : '').join('');
+      
+      const amenitiesHTML = data.amenities.map(a => '<div class="amenity-item">' + a + '</div>').join('');
+      document.getElementById('modalAmenities').innerHTML = amenitiesHTML;
+      
+      document.getElementById('propertyModal').classList.add('active');
+    }
+
+    function closePropertyModal() {
+      document.getElementById('propertyModal').classList.remove('active');
+    }
+
+    function contactProperty() {
+      alert('Contact form coming soon! For now, reach out to contact@micasaliving.com');
+    }
+
+    document.getElementById('propertyModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closePropertyModal();
+      }
+    });
+  </script>
+
 </script>
 </body>
 </html>
