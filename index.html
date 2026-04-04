@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mi Casa Living — Modern Rentals in Mexico</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --terra: #C4623A;
+      --terra-light: #D97B52;
+      --terra-dark: #A8512F;
+      --cream: #FAF6F0;
+      --warm-white: #FFFCF8;
+      --sand: #E8DDD0;
+      --dark: #1C1510;
+      --brown: #3D2B1F;
+      --muted: #7A6458;
+      --gold: #C9A96E;
+      --white-trans: rgba(255, 252, 248, 0.95);
+      --dark-trans: rgba(28, 21, 16, 0.9);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--warm-white);
+      color: var(--dark);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.6rem 4rem;
+      background: var(--white-trans);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(196, 98, 58, 0.08);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.02);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem; font-weight: 400; letter-spacing: 0.05em;
+      color: var(--dark); text-decoration: none;
+    }
+    .nav-logo span { color: var(--terra); }
+    .nav-links { display: flex; gap: 3rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--muted); text-decoration: none; font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -6px; left: 0; width: 0; height: 1px;
+      background: var(--terra); transition: width 0.3s ease;
+    }
+    .nav-links a:hover { color: var(--terra); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta {
+      background: var(--terra); color: white;
+      padding: 0.7rem 1.8rem; border-radius: 3px;
+      font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
+      text-decoration: none; font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 24px rgba(196, 98, 58, 0.2);
+    }
+    .nav-cta:hover {
+      background: var(--terra-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(196, 98, 58, 0.3);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid; grid-template-columns: 1fr 1fr;
+      padding-top: 0;
+    }
+    .hero-left {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 6rem 5rem;
+      background: var(--warm-white);
+      position: relative;
+    }
+    .hero-eyebrow {
+      font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--terra); margin-bottom: 2rem; font-weight: 600;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.2rem, 6vw, 5.5rem);
+      line-height: 1.08; font-weight: 300;
+      color: var(--dark); margin-bottom: 2.2rem;
+      letter-spacing: -0.02em;
+    }
+    .hero-title em { font-style: italic; color: var(--terra); font-weight: 300; }
+    .hero-sub {
+      font-size: 1.05rem; line-height: 1.8; color: var(--muted);
+      max-width: 460px; margin-bottom: 3rem; font-weight: 300; letter-spacing: 0.3px;
+    }
+    .hero-actions { display: flex; gap: 1.2rem; align-items: center; }
+    .btn-primary {
+      background: var(--terra); color: white;
+      padding: 1rem 2.4rem; border-radius: 3px;
+      font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase;
+      text-decoration: none; font-weight: 600;
+      transition: all 0.3s ease;
+      display: inline-block;
+      box-shadow: 0 8px 24px rgba(196, 98, 58, 0.2);
+      border: none; cursor: pointer;
+    }
+    .btn-primary:hover {
+      background: var(--terra-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 40px rgba(196, 98, 58, 0.3);
+    }
+    .btn-ghost {
+      color: var(--dark); font-size: 0.8rem; letter-spacing: 0.1em;
+      text-decoration: none; font-weight: 500;
+      border-bottom: 2px solid var(--dark);
+      padding-bottom: 2px; transition: all 0.3s ease;
+    }
+    .btn-ghost:hover {
+      color: var(--terra);
+      border-color: var(--terra);
+    }
+    .hero-stats {
+      display: flex; gap: 4rem; margin-top: 5rem;
+      padding-top: 2.5rem; border-top: 1px solid var(--sand);
+    }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem; font-weight: 400; color: var(--dark); line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--muted); margin-top: 0.4rem; font-weight: 500;
+    }
+    .hero-right {
+      position: relative; overflow: hidden;
+      background: var(--sand);
+    }
+    .hero-img-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      height: 100%; gap: 2px;
+    }
+    .hero-img-cell {
+      overflow: hidden; position: relative; background: rgba(0,0,0,0.05);
+    }
+    .hero-img-cell:first-child { grid-row: span 2; }
+    .hero-img-cell img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .hero-img-cell:hover img { transform: scale(1.05); }
+    .hero-badge {
+      position: absolute; bottom: 2.5rem; left: 2.5rem;
+      background: var(--dark-trans); color: white;
+      padding: 1rem 1.5rem; border-radius: 3px;
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .hero-badge-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem; font-weight: 400;
+    }
+    .hero-badge-sub { font-size: 0.75rem; color: rgba(255,255,255,0.7); margin-top: 0.3rem; letter-spacing: 0.5px; }
+
+    /* ── MARQUEE ── */
+    .marquee-bar {
+      background: linear-gradient(135deg, var(--terra) 0%, #d97b52 100%);
+      color: white;
+      padding: 1rem 0; overflow: hidden; white-space: nowrap;
+    }
+    .marquee-inner {
+      display: inline-flex; gap: 3.5rem;
+      animation: marquee 30s linear infinite;
+    }
+    .marquee-item {
+      font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase;
+      display: flex; align-items: center; gap: 1rem; font-weight: 500;
+    }
+    .marquee-dot { width: 5px; height: 5px; background: rgba(255,255,255,0.6); border-radius: 50%; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ── SECTION SHARED ── */
+    section { padding: 8rem 5rem; }
+    .section-label {
+      font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--terra); margin-bottom: 1.2rem; font-weight: 600;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-weight: 300; line-height: 1.15; color: var(--dark);
+      letter-spacing: -0.02em;
+    }
+    .section-title em { font-style: italic; color: var(--terra); font-weight: 300; }
+
+    /* ── WHY US ── */
+    .why {
+      background: var(--cream);
+      display: grid; grid-template-columns: 1fr 1.5fr; gap: 7rem;
+      align-items: start;
+    }
+    .why-left { position: sticky; top: 10rem; }
+    .why-sub {
+      font-size: 1rem; line-height: 1.85; color: var(--muted);
+      margin-top: 1.8rem; font-weight: 300; letter-spacing: 0.3px;
+    }
+    .why-pillars { display: flex; flex-direction: column; gap: 0; }
+    .pillar {
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--sand);
+      display: grid; grid-template-columns: 4rem 1fr; gap: 2rem;
+      align-items: start;
+      transition: opacity 0.3s ease;
+    }
+    .pillar:first-child { border-top: 1px solid var(--sand); }
+    .pillar:hover { opacity: 1; }
+    .pillar-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem; color: var(--terra); font-weight: 600;
+      padding-top: 0.2rem;
+    }
+    .pillar-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem; font-weight: 400; margin-bottom: 0.6rem;
+    }
+    .pillar-body { font-size: 0.9rem; line-height: 1.75; color: var(--muted); font-weight: 300; letter-spacing: 0.2px; }
+
+    /* ── PROPERTIES ── */
+    .properties { background: var(--warm-white); }
+    .properties-header {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: 4rem;
+    }
+    .prop-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+    }
+    .prop-card {
+      background: white; border: 1px solid var(--sand);
+      overflow: hidden; border-radius: 4px;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+    .prop-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 24px 48px rgba(28, 21, 16, 0.12);
+      border-color: var(--terra);
+    }
+    .prop-card-img {
+      height: 240px; overflow: hidden; position: relative;
+      background: var(--sand);
+    }
+    .prop-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+    .prop-card:hover .prop-card-img img { transform: scale(1.08); }
+    .prop-tag {
+      position: absolute; top: 1.2rem; left: 1.2rem;
+      background: var(--terra); color: white;
+      font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+      padding: 0.4rem 0.8rem; border-radius: 2px; font-weight: 600;
+    }
+    .prop-card-body { padding: 1.8rem; }
+    .prop-type {
+      font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 0.5rem; font-weight: 600;
+    }
+    .prop-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem; font-weight: 400; margin-bottom: 1rem;
+    }
+    .prop-details {
+      display: flex; gap: 1.5rem;
+      font-size: 0.8rem; color: var(--muted);
+    }
+    .prop-detail { display: flex; align-items: center; gap: 0.4rem; }
+    .prop-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem; color: var(--terra); font-weight: 400;
+      margin-top: 1.2rem; padding-top: 1.2rem;
+      border-top: 1px solid var(--sand);
+    }
+
+    /* ── STORY ── */
+    .story {
+      background: var(--dark); color: white;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 7rem;
+      align-items: center;
+    }
+    .story .section-label { color: var(--gold); }
+    .story .section-title { color: white; }
+    .story-body {
+      font-size: 1rem; line-height: 1.9; color: rgba(255,255,255,0.7);
+      margin-top: 1.8rem; font-weight: 300; letter-spacing: 0.3px;
+    }
+    .story-body p + p { margin-top: 1.4rem; }
+    .story-right { position: relative; }
+    .story-img-wrap {
+      position: relative; border-radius: 4px; overflow: hidden;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
+    }
+    .story-img-wrap img { width: 100%; display: block; }
+    .story-float {
+      position: absolute; bottom: -2.5rem; left: -2.5rem;
+      background: var(--terra); color: white;
+      padding: 1.8rem; width: 180px;
+      border-radius: 3px;
+      box-shadow: 0 12px 40px rgba(196, 98, 58, 0.25);
+    }
+    .story-float-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem; font-weight: 300; line-height: 1;
+    }
+    .story-float-label { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; margin-top: 0.4rem; opacity: 0.85; font-weight: 500; }
+    .story-signature {
+      margin-top: 2.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: 1.2rem;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ── PROCESS ── */
+    .process { background: var(--cream); }
+    .process-header { text-align: center; max-width: 580px; margin: 0 auto 4.5rem; }
+    .process-header .section-label { justify-content: center; display: flex; }
+    .process-steps {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5rem;
+      position: relative;
+    }
+    .process-steps::before {
+      content: '';
+      position: absolute; top: 2rem; left: 10%; right: 10%; height: 2px;
+      background: linear-gradient(to right, transparent, var(--terra) 20%, var(--gold) 50%, var(--terra) 80%, transparent);
+      opacity: 0.4;
+    }
+    .process-step { text-align: center; position: relative; padding-top: 1.5rem; }
+    .step-circle {
+      width: 5rem; height: 5rem; border-radius: 50%;
+      background: var(--warm-white); border: 2px solid var(--terra);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; color: var(--terra); font-weight: 400;
+      transition: all 0.3s ease;
+    }
+    .process-step:hover .step-circle {
+      transform: scale(1.1);
+      box-shadow: 0 8px 20px rgba(196, 98, 58, 0.2);
+    }
+    .step-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem; margin-bottom: 0.7rem; font-weight: 400;
+    }
+    .step-body { font-size: 0.85rem; line-height: 1.7; color: var(--muted); font-weight: 300; letter-spacing: 0.2px; }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials { background: var(--warm-white); }
+    .test-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; margin-top: 3.5rem; }
+    .test-card {
+      background: white; padding: 2.5rem;
+      border-left: 4px solid var(--terra); position: relative;
+      border-radius: 3px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      transition: all 0.3s ease;
+    }
+    .test-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+    }
+    .test-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem; line-height: 1.8; font-style: italic;
+      color: var(--dark); margin-bottom: 1.8rem;
+    }
+    .test-author { font-size: 0.8rem; letter-spacing: 0.1em; color: var(--muted); font-weight: 500; }
+    .test-author strong { color: var(--dark); display: block; margin-bottom: 0.3rem; font-style: normal; font-family: 'DM Sans'; font-weight: 600; }
+    .test-stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 1.2rem; letter-spacing: 1px; }
+
+    /* ── INQUIRY / CRM ── */
+    .inquiry {
+      background: var(--dark);
+      display: grid; grid-template-columns: 1fr 1fr; gap: 7rem;
+      align-items: start;
+    }
+    .inquiry .section-label { color: var(--gold); }
+    .inquiry .section-title { color: white; }
+    .inquiry-sub {
+      font-size: 1rem; line-height: 1.8; color: rgba(255,255,255,0.6);
+      margin-top: 1.5rem; font-weight: 300; letter-spacing: 0.3px;
+    }
+    .inquiry-info { margin-top: 3.5rem; display: flex; flex-direction: column; gap: 1.5rem; }
+    .info-item { display: flex; gap: 1.2rem; align-items: flex-start; }
+    .info-icon {
+      width: 2.2rem; height: 2.2rem; border: 1.5px solid var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: 0.95rem; color: var(--gold);
+    }
+    .info-text { font-size: 0.9rem; color: rgba(255,255,255,0.6); line-height: 1.7; font-weight: 300; }
+    .info-text strong { color: white; display: block; margin-bottom: 0.2rem; font-weight: 600; }
+
+    /* Form */
+    .inquiry-form {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 3rem; border-radius: 4px;
+      backdrop-filter: blur(10px);
+    }
+    .form-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem; color: white; margin-bottom: 2.2rem; font-weight: 300;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+    .form-group { margin-bottom: 1.4rem; }
+    .form-group label {
+      display: block; font-size: 0.7rem; letter-spacing: 0.15em;
+      text-transform: uppercase; color: rgba(255,255,255,0.45);
+      margin-bottom: 0.7rem; font-weight: 600;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: white; padding: 1rem 1.2rem;
+      font-size: 0.9rem; font-family: 'DM Sans', sans-serif;
+      border-radius: 3px; outline: none;
+      transition: all 0.3s ease;
+      appearance: none;
+      font-weight: 300;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--terra);
+      background: rgba(255,255,255,0.12);
+      box-shadow: 0 0 0 3px rgba(196, 98, 58, 0.1);
+    }
+    .form-group select option { background: var(--dark); }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(255,255,255,0.3); font-weight: 300; }
+    .form-submit {
+      width: 100%; background: var(--terra); color: white;
+      border: none; padding: 1.1rem; cursor: pointer;
+      font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase;
+      font-family: 'DM Sans', sans-serif; font-weight: 600;
+      transition: all 0.3s ease; border-radius: 3px; margin-top: 0.8rem;
+      box-shadow: 0 8px 24px rgba(196, 98, 58, 0.2);
+    }
+    .form-submit:hover {
+      background: var(--terra-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(196, 98, 58, 0.3);
+    }
+    .form-note {
+      font-size: 0.75rem; color: rgba(255,255,255,0.3);
+      text-align: center; margin-top: 1.2rem; line-height: 1.6; font-weight: 300;
+    }
+    .form-success {
+      display: none; text-align: center; padding: 2.5rem;
+    }
+    .form-success-icon { font-size: 3rem; margin-bottom: 1.2rem; }
+    .form-success-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem; color: white; margin-bottom: 0.6rem; font-weight: 300;
+    }
+    .form-success-sub { font-size: 0.9rem; color: rgba(255,255,255,0.55); font-weight: 300; letter-spacing: 0.3px; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0F0B08; color: rgba(255,255,255,0.45);
+      padding: 3.5rem 5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; color: white; font-weight: 300; letter-spacing: 0.02em;
+    }
+    .footer-logo span { color: var(--terra); }
+    .footer-sub { font-size: 0.75rem; letter-spacing: 0.1em; margin-top: 0.4rem; font-weight: 300; text-transform: uppercase; }
+    .footer-links { display: flex; gap: 2.5rem; }
+    .footer-links a {
+      font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(255,255,255,0.35); text-decoration: none;
+      transition: color 0.3s ease; font-weight: 500;
+    }
+    .footer-links a:hover { color: var(--terra); }
+    .footer-copy { font-size: 0.75rem; font-weight: 300; }
+
+    /* ── ANIMATIONS ── */
+    .fade-up {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      nav { padding: 1.2rem 2rem; }
+      .nav-links { gap: 2rem; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { min-height: 60vh; }
+      .hero-left { padding: 4rem 2.5rem; }
+      .hero-left, .hero-right { margin-top: 4rem; }
+      section { padding: 6rem 2.5rem; }
+      .why, .story, .inquiry { grid-template-columns: 1fr; gap: 4rem; }
+      .why-left { position: static; }
+      .prop-grid { grid-template-columns: repeat(2, 1fr); }
+      .process-steps { grid-template-columns: repeat(2, 1fr); }
+      .test-grid { grid-template-columns: repeat(2, 1fr); }
+      .story-float { position: static; width: 100%; margin-top: 2rem; }
+      footer { flex-direction: column; gap: 2rem; text-align: center; }
+      .footer-links { flex-wrap: wrap; justify-content: center; }
+      .form-row { grid-template-columns: 1fr; }
+      .inquiry-form { padding: 2rem; }
+    }
+
+    @media (max-width: 640px) {
+      nav { padding: 1rem; }
+      .nav-logo { font-size: 1.3rem; }
+      .nav-cta { padding: 0.6rem 1.2rem; font-size: 0.7rem; }
+      .hero-eyebrow { font-size: 0.65rem; }
+      .hero-title { font-size: clamp(2rem, 5vw, 3rem); }
+      .hero-sub { font-size: 0.95rem; max-width: 100%; }
+      .hero-actions { flex-direction: column; gap: 0.8rem; width: 100%; }
+      .btn-primary, .btn-ghost { width: 100%; text-align: center; }
+      .hero-stats { flex-direction: column; gap: 2rem; }
+      section { padding: 4rem 1.5rem; }
+      .why { grid-template-columns: 1fr; }
+      .prop-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr; gap: 2rem; }
+      .test-grid { grid-template-columns: 1fr; }
+      .inquiry { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      footer { padding: 2rem 1.5rem; font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Mi Casa <span>Living</span></a>
+  <ul class="nav-links">
+    <li><a href="#properties">Properties</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#story">Our Story</a></li>
+    <li><a href="#inquiry">Inquire</a></li>
+  </ul>
+  <a href="#inquiry" class="nav-cta">Request Info</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="padding:0">
+  <div class="hero-left">
+    <p class="hero-eyebrow fade-up">Premium Long-Term Rentals · México</p>
+    <h1 class="hero-title fade-up">Your home<br>in <em>México,</em><br>handled.</h1>
+    <p class="hero-sub fade-up">Modern, fully-managed apartments for remote professionals and long-term residents. Built on trust, backed by a team that shows up.</p>
+    <div class="hero-actions fade-up">
+      <a href="#properties" class="btn-primary">View Properties</a>
+      <a href="#inquiry" class="btn-ghost">Get in touch</a>
+    </div>
+    <div class="hero-stats fade-up">
+      <div>
+        <div class="stat-num">20+</div>
+        <div class="stat-label">Units Available</div>
+      </div>
+      <div>
+        <div class="stat-num">5</div>
+        <div class="stat-label">Years Building</div>
+      </div>
+      <div>
+        <div class="stat-num">24h</div>
+        <div class="stat-label">Response Time</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-grid">
+      <div class="hero-img-cell">
+        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80" alt="Modern apartment exterior"/>
+        <div class="hero-badge">
+          <div class="hero-badge-title">Fully Managed</div>
+          <div class="hero-badge-sub">Issues resolved within 24 hours</div>
+        </div>
+      </div>
+      <div class="hero-img-cell">
+        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&q=80" alt="Modern interior"/>
+      </div>
+      <div class="hero-img-cell">
+        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&q=80" alt="Building amenities"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-bar">
+  <div class="marquee-inner">
+    <span class="marquee-item"><span class="marquee-dot"></span>Studio to 3-Bedroom Apartments</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Modern Buildings with Amenities</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Safe & Strategic Locations</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Long-Term Leases Welcome</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Remote Worker Friendly</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Same-Day Maintenance Response</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Bilingual Support Team</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Studio to 3-Bedroom Apartments</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Modern Buildings with Amenities</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Safe & Strategic Locations</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Long-Term Leases Welcome</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Remote Worker Friendly</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Same-Day Maintenance Response</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Bilingual Support Team</span>
+  </div>
+</div>
+
+<!-- WHY US -->
+<section class="why" id="why">
+  <div class="why-left">
+    <p class="section-label fade-up">Why Mi Casa Living</p>
+    <h2 class="section-title fade-up">We built this for<br><em>people like you</em></h2>
+    <p class="why-sub fade-up">Americans living in México deserve more than a landlord. They deserve a team. We've spent five years creating a rental experience built around safety, responsiveness, and feeling genuinely at home.</p>
+  </div>
+  <div class="why-pillars">
+    <div class="pillar fade-up">
+      <div class="pillar-num">01</div>
+      <div>
+        <div class="pillar-title">Same-Day Maintenance</div>
+        <div class="pillar-body">AC not working? Plumbing issue? We have a dedicated on-the-ground team ready to respond. No waiting, no excuses — your comfort is our reputation.</div>
+      </div>
+    </div>
+    <div class="pillar fade-up">
+      <div class="pillar-num">02</div>
+      <div>
+        <div class="pillar-title">Safety First, Always</div>
+        <div class="pillar-body">Every property is hand-selected for location, building quality, and neighborhood safety. We wouldn't rent it to you if we wouldn't live there ourselves.</div>
+      </div>
+    </div>
+    <div class="pillar fade-up">
+      <div class="pillar-num">03</div>
+      <div>
+        <div class="pillar-title">Bilingual & Transparent</div>
+        <div class="pillar-body">English and Spanish, no surprises. We handle every contract, utility, and communication clearly — no language barrier, no hidden fees.</div>
+      </div>
+    </div>
+    <div class="pillar fade-up">
+      <div class="pillar-num">04</div>
+      <div>
+        <div class="pillar-title">Long-Term Welcome</div>
+        <div class="pillar-body">We specialize in 12-month+ leases. We want you to put down roots. Stable tenants create stable homes — it's a relationship, not a transaction.</div>
+      </div>
+    </div>
+    <div class="pillar fade-up">
+      <div class="pillar-num">05</div>
+      <div>
+        <div class="pillar-title">Remote Work Ready</div>
+        <div class="pillar-body">High-speed internet, modern buildings, quiet spaces. Our properties are selected with the remote professional in mind — work from México without compromise.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROPERTIES -->
+<section class="properties" id="properties">
+  <div class="properties-header fade-up">
+    <div>
+      <p class="section-label">Available Units</p>
+      <h2 class="section-title">Curated <em>properties</em></h2>
+    </div>
+    <a href="#inquiry" class="btn-ghost">Request full portfolio →</a>
+  </div>
+  <div class="prop-grid">
+    <div class="prop-card fade-up">
+      <div class="prop-card-img">
+        <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=500&q=80" alt="Studio apartment"/>
+        <span class="prop-tag">Available</span>
+      </div>
+      <div class="prop-card-body">
+        <p class="prop-type">Studio</p>
+        <h3 class="prop-name">Luminoso Studio</h3>
+        <div class="prop-details">
+          <span class="prop-detail">⬜ 45 m²</span>
+          <span class="prop-detail">🏢 Floor 8</span>
+          <span class="prop-detail">🏊 Pool & Gym</span>
+        </div>
+        <div class="prop-price">From $800 USD / month</div>
+      </div>
+    </div>
+    <div class="prop-card fade-up">
+      <div class="prop-card-img">
+        <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=500&q=80" alt="1 bedroom"/>
+        <span class="prop-tag">Available</span>
+      </div>
+      <div class="prop-card-body">
+        <p class="prop-type">1 Bedroom</p>
+        <h3 class="prop-name">Moderno One</h3>
+        <div class="prop-details">
+          <span class="prop-detail">⬜ 68 m²</span>
+          <span class="prop-detail">🏢 Floor 12</span>
+          <span class="prop-detail">🏊 Full Amenities</span>
+        </div>
+        <div class="prop-price">From $1,100 USD / month</div>
+      </div>
+    </div>
+    <div class="prop-card fade-up">
+      <div class="prop-card-img">
+        <img src="https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?w=500&q=80" alt="3 bedroom"/>
+        <span class="prop-tag" style="background:var(--brown)">Leasing Soon</span>
+      </div>
+      <div class="prop-card-body">
+        <p class="prop-type">3 Bedroom</p>
+        <h3 class="prop-name">Familia Grande</h3>
+        <div class="prop-details">
+          <span class="prop-detail">⬜ 130 m²</span>
+          <span class="prop-detail">🏢 Floor 5</span>
+          <span class="prop-detail">🐕 Pet Friendly</span>
+        </div>
+        <div class="prop-price">From $1,800 USD / month</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story" id="story">
+  <div>
+    <p class="section-label fade-up">Our Story</p>
+    <h2 class="section-title fade-up">A family business<br>built on <em>two roots</em></h2>
+    <div class="story-body fade-up">
+      <p>We are a husband and wife team — originally from México, now based between San Diego and our properties south of the border. For five years we have been quietly building something we believe in: safe, beautiful, well-managed homes for Americans who choose México as their home.</p>
+      <p>We know both worlds. We understand what an American renter needs — reliability, clear communication, and knowing someone will actually pick up the phone. And we know México — the neighborhoods, the buildings, the people, the culture.</p>
+      <p>Every apartment in our portfolio has been personally selected. We wouldn't rent it to you if we wouldn't live there ourselves. Mi Casa Living is our legacy — and we intend to build it one happy tenant at a time.</p>
+    </div>
+    <p class="story-signature fade-up">— A Grupo Tague Family Company</p>
+  </div>
+  <div class="story-right fade-up">
+    <div class="story-img-wrap">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Beautiful Mexican property"/>
+    </div>
+    <div class="story-float">
+      <div class="story-float-num">5</div>
+      <div class="story-float-label">Years of building</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="process-header">
+    <p class="section-label fade-up">How It Works</p>
+    <h2 class="section-title fade-up">Simple from <em>inquiry to keys</em></h2>
+  </div>
+  <div class="process-steps">
+    <div class="process-step fade-up">
+      <div class="step-circle">1</div>
+      <h3 class="step-title">Reach Out</h3>
+      <p class="step-body">Fill out our inquiry form with your ideal unit size, location, and move-in date.</p>
+    </div>
+    <div class="process-step fade-up">
+      <div class="step-circle">2</div>
+      <h3 class="step-title">We Match You</h3>
+      <p class="step-body">We'll curate available options that fit your needs and share photos, details, and pricing.</p>
+    </div>
+    <div class="process-step fade-up">
+      <div class="step-circle">3</div>
+      <h3 class="step-title">Virtual Tour</h3>
+      <p class="step-body">We'll walk you through the unit on video call — no surprises when you arrive.</p>
+    </div>
+    <div class="process-step fade-up">
+      <div class="step-circle">4</div>
+      <h3 class="step-title">Move In</h3>
+      <p class="step-body">Sign your lease, meet your contact, and get your keys. We're here from day one.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <p class="section-label fade-up">What Tenants Say</p>
+  <h2 class="section-title fade-up">Real people, <em>real homes</em></h2>
+  <div class="test-grid">
+    <div class="test-card fade-up">
+      <div class="test-stars">★★★★★</div>
+      <p class="test-quote">"I was nervous about renting remotely in a foreign country. Mi Casa Living made it feel completely safe. They answered every question, the apartment was exactly as shown, and when my AC acted up they had someone there within hours."</p>
+      <div class="test-author"><strong>Sarah T.</strong> Remote Designer · San Francisco → CDMX</div>
+    </div>
+    <div class="test-card fade-up">
+      <div class="test-stars">★★★★★</div>
+      <p class="test-quote">"I've been renting with them for two years. The building is safe, the location is perfect, and I've never had an issue that wasn't resolved the same day. This is what renting in México should feel like."</p>
+      <div class="test-author"><strong>James R.</strong> Software Engineer · Austin → Guadalajara</div>
+    </div>
+    <div class="test-card fade-up">
+      <div class="test-stars">★★★★★</div>
+      <p class="test-quote">"As a real estate agent I've referred four clients to Mi Casa Living. Every single one has renewed their lease. That says everything. A professional, trustworthy operation I recommend without hesitation."</p>
+      <div class="test-author"><strong>Monica L.</strong> Real Estate Agent · San Diego</div>
+    </div>
+  </div>
+</section>
+
+<!-- INQUIRY / CRM -->
+<section class="inquiry" id="inquiry">
+  <div>
+    <p class="section-label fade-up">Get in Touch</p>
+    <h2 class="section-title fade-up">Find your<br><em>home in México</em></h2>
+    <p class="inquiry-sub fade-up">Tell us what you're looking for and we'll reach out within 24 hours with options that match your needs. No pressure, no spam — just a real conversation.</p>
+    <div class="inquiry-info fade-up">
+      <div class="info-item">
+        <div class="info-icon">✉</div>
+        <div class="info-text"><strong>Email</strong>hello@micasaliving.com</div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">📱</div>
+        <div class="info-text"><strong>WhatsApp</strong>Available for quick questions</div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">📍</div>
+        <div class="info-text"><strong>Based in</strong>San Diego, CA · Properties across México</div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">🗣</div>
+        <div class="info-text"><strong>Languages</strong>English & Spanish — fully bilingual</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="inquiry-form fade-up">
+    <p class="form-title">Request Property Information</p>
+    <div id="inquiryForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="Jane" id="fname"/>
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Smith" id="lname"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="jane@email.com" id="email"/>
+      </div>
+      <div class="form-group">
+        <label>WhatsApp / Phone (optional)</label>
+        <input type="tel" placeholder="+1 555 000 0000" id="phone"/>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Unit Size</label>
+          <select id="unit">
+            <option value="">Select size...</option>
+            <option>Studio</option>
+            <option>1 Bedroom</option>
+            <option>2 Bedroom</option>
+            <option>3 Bedroom</option>
+            <option>Flexible</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Ideal Move-In</label>
+          <input type="month" id="movein"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Budget (USD/month)</label>
+        <select id="budget">
+          <option value="">Select range...</option>
+          <option>Under $800</option>
+          <option>$800 – $1,200</option>
+          <option>$1,200 – $1,800</option>
+          <option>$1,800 – $2,500</option>
+          <option>$2,500+</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Tell us about yourself & what you're looking for</label>
+        <textarea placeholder="I'm a remote worker relocating from... I need..." id="message"></textarea>
+      </div>
+      <button class="form-submit" onclick="submitForm()">Send Inquiry →</button>
+      <p class="form-note">We typically respond within 24 hours. Your information is never shared with third parties.</p>
+    </div>
+    <div class="form-success" id="formSuccess">
+      <div class="form-success-icon">🏡</div>
+      <div class="form-success-title">Inquiry Received!</div>
+      <p class="form-success-sub">Thank you — we'll be in touch within 24 hours with options that match your needs.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">Mi Casa <span>Living</span></div>
+    <div class="footer-sub">A Grupo Tague Company · San Diego × México</div>
+  </div>
+  <div class="footer-links">
+    <a href="#properties">Properties</a>
+    <a href="#why">Why Us</a>
+    <a href="#story">Our Story</a>
+    <a href="#inquiry">Contact</a>
+  </div>
+  <div class="footer-copy">© 2025 Mi Casa Living. All rights reserved.</div>
+</footer>
+
+<script>
+  // Scroll animations with stagger
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Form submit
+  function submitForm() {
+    const fname = document.getElementById('fname').value;
+    const email = document.getElementById('email').value;
+    if (!fname || !email) {
+      alert('Please fill in your name and email to continue.');
+      return;
+    }
+    document.getElementById('inquiryForm').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  }
+</script>
+</body>
+</html>
