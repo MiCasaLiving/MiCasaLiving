@@ -951,7 +951,7 @@
     <div class="prop-card fade-up" onclick="openPropertyModal('Adamant Toreo Studio 8 Plaza View')" style="cursor: pointer;">
       <div class="prop-card-img">
         <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=500&q=80" alt="Adamant Toreo Studio 8"/>
-        <span class="prop-tag">Rented</span>
+        <span class="prop-tag">Featured</span>
       </div>
       <div class="prop-card-body">
         <p class="prop-type">Tijuana</p>
@@ -968,7 +968,7 @@
     <div class="prop-card fade-up" onclick="openPropertyModal('Distrito Revolución')" style="cursor: pointer;">
       <div class="prop-card-img">
         <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=500&q=80" alt="Distrito Revolución"/>
-        <span class="prop-tag">Rented</span>
+        <span class="prop-tag">Featured</span>
       </div>
       <div class="prop-card-body">
         <p class="prop-type">Tijuana</p>
@@ -985,7 +985,7 @@
     <div class="prop-card fade-up" onclick="openPropertyModal('Icon 11 Pool View')" style="cursor: pointer;">
       <div class="prop-card-img">
         <img src="https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?w=500&q=80" alt="Icon 11 Pool View"/>
-        <span class="prop-tag">Rented</span>
+        <span class="prop-tag">Featured</span>
       </div>
       <div class="prop-card-body">
         <p class="prop-type">Tijuana</p>
@@ -1002,7 +1002,7 @@
     <div class="prop-card fade-up" onclick="openPropertyModal('S7ETE Revolución')" style="cursor: pointer;">
       <div class="prop-card-img">
         <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=500&q=80" alt="S7ETE Revolución"/>
-        <span class="prop-tag">Rented</span>
+        <span class="prop-tag">Featured</span>
       </div>
       <div class="prop-card-body">
         <p class="prop-type">Tijuana</p>
@@ -1019,7 +1019,7 @@
     <div class="prop-card fade-up" onclick="openPropertyModal('Viñedos del Mar PH')" style="cursor: pointer;">
       <div class="prop-card-img">
         <img src="https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?w=500&q=80" alt="Viñedos del Mar"/>
-        <span class="prop-tag">Rented</span>
+        <span class="prop-tag">Featured</span>
       </div>
       <div class="prop-card-body">
         <p class="prop-type">Ensenada</p>
@@ -1036,7 +1036,7 @@
     <div class="prop-card fade-up" onclick="openPropertyModal('Vista Vela 3')" style="cursor: pointer;">
       <div class="prop-card-img">
         <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=500&q=80" alt="Vista Vela 3"/>
-        <span class="prop-tag">Rented</span>
+        <span class="prop-tag">Featured</span>
       </div>
       <div class="prop-card-body">
         <p class="prop-type">Los Cabos</p>
@@ -1053,7 +1053,7 @@
     <div class="prop-card fade-up" onclick="openPropertyModal('Vista Vela 3 PH Arch + Ocean View')" style="cursor: pointer;">
       <div class="prop-card-img">
         <img src="https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?w=500&q=80" alt="Vista Vela 3 PH"/>
-        <span class="prop-tag">Rented</span>
+        <span class="prop-tag">Featured</span>
       </div>
       <div class="prop-card-body">
         <p class="prop-type">Los Cabos</p>
@@ -1070,7 +1070,7 @@
     <div class="prop-card fade-up" onclick="openPropertyModal('Vista Vela 3 Arch + Ocean View')" style="cursor: pointer;">
       <div class="prop-card-img">
         <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=500&q=80" alt="Vista Vela 3 Arch"/>
-        <span class="prop-tag">Ocean View</span>
+        <span class="prop-tag">Featured</span>
       </div>
       <div class="prop-card-body">
         <p class="prop-type">Los Cabos</p>
@@ -1087,7 +1087,7 @@
     <div class="prop-card fade-up" onclick="openPropertyModal('Portica')" style="cursor: pointer;">
       <div class="prop-card-img">
         <img src="https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?w=500&q=80" alt="Portica"/>
-        <span class="prop-tag">Ocean View</span>
+        <span class="prop-tag">Featured</span>
       </div>
       <div class="prop-card-body">
         <p class="prop-type">Tijuana</p>
@@ -1171,7 +1171,7 @@
     </div>
     <div class="prop-card fade-up" onclick="openPropertyModal('Bahia Príncipe')" style="cursor: pointer;">
       <div class="prop-card-img">
-        <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=500&q=80" alt="Bahia Príncipe"/>
+        <img src="/bahia_principe_render.png" alt="Bahia Príncipe Render"/>
         <span class="prop-tag">Coming in 2027</span>
       </div>
       <div class="prop-card-body">
@@ -1473,8 +1473,13 @@
   <script>
     // Property full data with descriptions
     const propertyDetails = {
+      // Image URLs for each property (can be updated with real photos)
+      imageMap: {
+        'Bahia Príncipe': '/bahia_principe_render.png'
+      },
+
       'Luzia 1 Bedroom Peninsula View': {
-        tag: 'Available Soon',
+        tag: 'Coming in 2028',
         beds: 1,
         baths: 1,
         location: 'Tijuana',
@@ -1492,7 +1497,7 @@
         amenities: ['WiFi', 'AC', 'Pool', 'Swim Lane', 'Gym', 'Outdoor Yoga', 'Fire Pits', 'Coffee Station', 'Game Room', 'Coworking', 'Event Hall', 'Kitchen', 'Terrace', '24/7 Security', 'Parking']
       },
       'Adamant Toreo Studio 5 Plaza View': {
-        tag: 'Rented',
+        tag: 'Featured',
         beds: 1,
         baths: 1,
         location: 'Tijuana',
@@ -1501,7 +1506,7 @@
         amenities: ['WiFi', 'AC', 'Sky Pool + Jacuzzi', 'Sky Bar', 'Sky Lounge', 'Gym', 'Coworking', 'Fire Pit', 'Game Room', 'Grill Zone', 'Kitchen', 'Terrace', '24/7 Security', 'Parking']
       },
       'Adamant Toreo Studio 8 Plaza View': {
-        tag: 'Rented',
+        tag: 'Featured',
         beds: 1,
         baths: 1,
         location: 'Tijuana',
@@ -1510,7 +1515,7 @@
         amenities: ['WiFi', 'AC', 'Sky Pool + Jacuzzi', 'Sky Bar', 'Sky Lounge', 'Gym', 'Coworking', 'Fire Pit', 'Game Room', 'Grill Zone', 'Kitchen', 'Terrace', '24/7 Security', 'Parking']
       },
       'Distrito Revolución': {
-        tag: 'Rented',
+        tag: 'Featured',
         beds: 1,
         baths: 1,
         location: 'Tijuana',
@@ -1519,7 +1524,7 @@
         amenities: ['WiFi', 'AC', 'Kitchen', 'Terrace', 'Controlled Access', '24/7 Security']
       },
       'Icon 11 Pool View': {
-        tag: 'Rented',
+        tag: 'Featured',
         beds: 1,
         baths: 1,
         location: 'Tijuana',
@@ -1528,7 +1533,7 @@
         amenities: ['WiFi', 'AC', 'Pool', 'Kitchen', 'Terrace', '24/7 Security', 'Parking']
       },
       'S7ETE Revolución': {
-        tag: 'Rented',
+        tag: 'Featured',
         beds: 1,
         baths: 1,
         location: 'Tijuana',
@@ -1537,7 +1542,7 @@
         amenities: ['WiFi', 'AC', 'Pool', 'Kitchen', 'Terrace', '24/7 Security', 'Parking']
       },
       'Viñedos del Mar PH': {
-        tag: 'Rented',
+        tag: 'Featured',
         beds: 2,
         baths: 2,
         location: 'Ensenada',
@@ -1546,7 +1551,7 @@
         amenities: ['WiFi', 'AC', 'Pool', 'Kitchen', 'Private Terrace', 'Washer/Dryer', 'Gated Community', 'Free Parking', 'Mountain & Vineyard Views']
       },
       'Vista Vela 3': {
-        tag: 'Rented',
+        tag: 'Featured',
         beds: 2,
         baths: 3,
         location: 'Los Cabos',
@@ -1555,7 +1560,7 @@
         amenities: ['WiFi', 'AC', '5 Pools', 'Gym', 'BBQ Bar', 'Padel Court', 'Gardens', 'Kitchen', 'Terrace', '24/7 Gated Security', 'Parking']
       },
       'Vista Vela 3 PH Arch + Ocean View': {
-        tag: 'Ocean View',
+        tag: 'Featured',
         beds: 1,
         baths: 2,
         location: 'Los Cabos',
@@ -1564,7 +1569,7 @@
         amenities: ['WiFi', 'AC', '5 Pools', 'Gym', 'BBQ Bar', 'Padel Court', 'Gardens', 'Kitchen', 'Private Rooftop Terrace', 'Arch + Ocean Views', '24/7 Gated Security', 'Parking']
       },
       'Vista Vela 3 Arch + Ocean View': {
-        tag: 'Ocean View',
+        tag: 'Featured',
         beds: 3,
         baths: 4,
         location: 'Los Cabos',
