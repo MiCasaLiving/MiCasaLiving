@@ -569,7 +569,18 @@
       location: 'Los Cabos',
       price: '$2,600',
       description: 'For those who want the complete Los Cabos experience without compromise, this 3-bedroom, 4-bathroom residence at Vistavela III delivers. Designed by Grupo Velas with meticulous attention to finishes and layout, this is a home built for living fully — wide open spaces, a terrace that frames the iconic Arch and Sea of Cortez, a fully equipped gourmet kitchen, and room for the whole family or a team of colleagues working remotely.\n\nThe Vistavela III community wraps this unit in resort-class amenities: five pools, a padel court, state-of-the-art gym, BBQ bar, lush gardens, and 24/7 gated security. Owners and residents consistently highlight the quality of life here — the sense of community, the safety, and the beauty of waking up to the Sea of Cortez every morning. Downtown Cabo, Médano Beach, and fine dining are 10 minutes away. This is long-term living at a level that Los Cabos is known for worldwide.',
-      amenities: ['WiFi', 'AC', '5 Pools', 'Gym', 'BBQ Bar', 'Padel Court', 'Gardens', 'Gourmet Kitchen', 'Large Terrace', 'Arch + Ocean Views', '24/7 Gated Security', 'Parking']
+      amenities: ['WiFi', 'AC', '5 Pools', 'Gym', 'BBQ Bar', 'Padel Court', 'Gardens', 'Gourmet Kitchen', 'Large Terrace', 'Arch + Ocean Views', '24/7 Gated Security', 'Parking'],
+      photos: [
+        '/images/vista-vela-3-terrace/arch-view.jpeg',
+        '/images/vista-vela-3-terrace/living-dining.jpeg',
+        '/images/vista-vela-3-terrace/bedroom.jpeg'
+      ],
+      amenityPhotos: [
+        '/images/vista-vela-3-terrace/hot-tub.jpeg',
+        '/images/vista-vela-3-terrace/kitchen.jpeg',
+        '/images/vista-vela-3-terrace/bathroom.jpeg',
+        '/images/vista-vela-3-terrace/night-terrace.jpeg'
+      ]
     },
     'Portica': {
       tag: 'Coming in 2027',
@@ -655,6 +666,26 @@
     // Amenities
     const amenitiesHTML = data.amenities.map(a => `<div class="amenity-item">${a}</div>`).join('');
     document.getElementById('detailAmenities').innerHTML = amenitiesHTML;
+
+    // Set main gallery photos if available
+    if (data.photos && data.photos.length >= 2) {
+      document.getElementById('heroMain').src = data.photos[0];
+      document.getElementById('heroSide').src = data.photos[1];
+    }
+    const galleryImgs = document.querySelectorAll('.gallery-item img');
+    if (data.photos) {
+      data.photos.forEach((src, i) => {
+        if (galleryImgs[i]) galleryImgs[i].src = src;
+      });
+    }
+
+    // Set amenity photos if available
+    const amenityImgEls = document.querySelectorAll('.amenity-photo img');
+    if (data.amenityPhotos) {
+      data.amenityPhotos.forEach((src, i) => {
+        if (amenityImgEls[i]) amenityImgEls[i].src = src;
+      });
+    }
 
     // Form submission
     document.getElementById('inquiryForm').onsubmit = (e) => {
