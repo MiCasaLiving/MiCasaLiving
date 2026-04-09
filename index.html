@@ -245,6 +245,7 @@
     }
     .prop-grid {
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+      grid-auto-rows: 1fr;
     }
     .prop-card {
       background: white; border: 1px solid var(--sand);
@@ -252,6 +253,9 @@
       transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       cursor: pointer;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
     .prop-card:hover {
       transform: translateY(-8px);
