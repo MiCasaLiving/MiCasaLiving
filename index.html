@@ -247,7 +247,8 @@
       display: grid; 
       grid-template-columns: repeat(3, 1fr); 
       gap: 2rem;
-      align-items: stretch;
+      align-items: start;
+      grid-auto-rows: auto;
     }
     .prop-grid > * {
       min-height: 0;
@@ -260,7 +261,6 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
       display: flex;
       flex-direction: column;
-      height: 100%;
     }
     .prop-card:hover {
       transform: translateY(-8px);
