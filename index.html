@@ -244,8 +244,13 @@
       margin-bottom: 4rem;
     }
     .prop-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
-      grid-auto-rows: 1fr;
+      display: grid; 
+      grid-template-columns: repeat(3, 1fr); 
+      gap: 2rem;
+      align-items: stretch;
+    }
+    .prop-grid > * {
+      min-height: 0;
     }
     .prop-card {
       background: white; border: 1px solid var(--sand);
@@ -281,7 +286,12 @@
       font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
       padding: 0.4rem 0.8rem; border-radius: 2px; font-weight: 600;
     }
-    .prop-card-body { padding: 1.8rem; }
+    .prop-card-body { 
+      padding: 1.8rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
     .prop-type {
       font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
       color: var(--muted); margin-bottom: 0.5rem; font-weight: 600;
