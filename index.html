@@ -262,7 +262,14 @@
       height: 240px; overflow: hidden; position: relative;
       background: var(--sand);
     }
-    .prop-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+    .prop-card-img img { 
+      width: 100%; 
+      height: 100%; 
+      object-fit: cover; 
+      object-position: center;
+      transition: transform 0.6s ease;
+      display: block;
+    }
     .prop-card:hover .prop-card-img img { transform: scale(1.08); }
     .prop-tag {
       position: absolute; top: 1.2rem; left: 1.2rem;
