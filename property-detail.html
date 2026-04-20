@@ -346,10 +346,10 @@
 <!-- HERO GALLERY -->
 <section class="detail-hero">
   <div class="detail-hero-main">
-    <img id="heroMain" src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=85" alt="Property main view"/>
+    <img id="heroMain" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Property main view"/>
   </div>
   <div class="detail-hero-side">
-    <img id="heroSide" src="https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?w=400&q=85" alt="Property detail"/>
+    <img id="heroSide" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Property detail"/>
   </div>
 </section>
 
@@ -385,36 +385,13 @@
   </div>
 
   <!-- GALLERY -->
-  <div class="detail-gallery">
-    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400&q=85" alt="Gallery 1"/></div>
-    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?w=400&q=85" alt="Gallery 2"/></div>
-    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400&q=85" alt="Gallery 3"/></div>
-    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400&q=85" alt="Gallery 4"/></div>
-    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?w=400&q=85" alt="Gallery 5"/></div>
-    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400&q=85" alt="Gallery 6"/></div>
-    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400&q=85" alt="Gallery 7"/></div>
-    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?w=400&q=85" alt="Gallery 8"/></div>
-  </div>
+  <div class="detail-gallery"></div>
 
   <!-- AMENITIES -->
     <!-- ── AMENITIES PHOTOS ── -->
     <div class="detail-amenities-photos">
       <h2 class="amenities-photos-title">Amenities & Features</h2>
-      <div class="amenities-photos-grid" id="detailAmenitiesPhotos">
-        <!-- Photos will be inserted here by JavaScript -->
-        <div class="amenity-photo">
-          <img src="https://images.unsplash.com/photo-1576092160562-40f08d215491?w=500&q=80" alt="Amenity 1"/>
-        </div>
-        <div class="amenity-photo">
-          <img src="https://images.unsplash.com/photo-1576092160562-40f08d215491?w=500&q=80" alt="Amenity 2"/>
-        </div>
-        <div class="amenity-photo">
-          <img src="https://images.unsplash.com/photo-1576092160562-40f08d215491?w=500&q=80" alt="Amenity 3"/>
-        </div>
-        <div class="amenity-photo">
-          <img src="https://images.unsplash.com/photo-1576092160562-40f08d215491?w=500&q=80" alt="Amenity 4"/>
-        </div>
-      </div>
+      <div class="amenities-photos-grid" id="detailAmenitiesPhotos"></div>
     </div>
 
   <div class="detail-amenities">
@@ -675,6 +652,226 @@
   };
 
   // Load property from URL parameter
+  // PHOTO_OVERRIDES_START
+  const propertyPhotoOverrides = {
+    "Adamant Toreo Studio 5 Plaza View": {
+      beds: 1,
+      baths: 1,
+      price: "$1,450",
+      photos: [
+        "/images/adamant-toreo-plaza-view/01-00b72932-c991-44c7-9086-74eaa4b0b650-1-105-c.jpeg",
+        "/images/adamant-toreo-plaza-view/02-3979919b-8f81-412a-8307-437055d5ad4f-1-201-a.jpeg",
+        "/images/adamant-toreo-plaza-view/03-6703cffd-80f4-45e0-9511-f89d485973de-1-201-a.jpeg",
+        "/images/adamant-toreo-plaza-view/04-710fc329-44cf-4628-96d5-2d09013028b4-1-105-c.jpeg",
+        "/images/adamant-toreo-plaza-view/05-78958e3e-cec7-477b-98eb-0a9270929210-1-201-a.jpeg",
+        "/images/adamant-toreo-plaza-view/06-8e349982-f7d7-4d9a-91a3-dd126890596e-1-201-a.jpeg"
+      ],
+      amenityPhotos: [
+        "/images/adamant-toreo-plaza-view/07-ammeneties-5.jpeg",
+        "/images/adamant-toreo-plaza-view/08-ammeneties-2.jpeg",
+        "/images/adamant-toreo-plaza-view/09-ammeneties-1.jpeg",
+        "/images/adamant-toreo-plaza-view/06-8e349982-f7d7-4d9a-91a3-dd126890596e-1-201-a.jpeg"
+      ]
+    },
+    "Adamant Toreo Studio 8 Plaza View": {
+      beds: 1,
+      baths: 1,
+      price: "$1,450",
+      photos: [
+        "/images/adamant-toreo-plaza-view/01-00b72932-c991-44c7-9086-74eaa4b0b650-1-105-c.jpeg",
+        "/images/adamant-toreo-plaza-view/02-3979919b-8f81-412a-8307-437055d5ad4f-1-201-a.jpeg",
+        "/images/adamant-toreo-plaza-view/03-6703cffd-80f4-45e0-9511-f89d485973de-1-201-a.jpeg",
+        "/images/adamant-toreo-plaza-view/04-710fc329-44cf-4628-96d5-2d09013028b4-1-105-c.jpeg",
+        "/images/adamant-toreo-plaza-view/05-78958e3e-cec7-477b-98eb-0a9270929210-1-201-a.jpeg",
+        "/images/adamant-toreo-plaza-view/06-8e349982-f7d7-4d9a-91a3-dd126890596e-1-201-a.jpeg"
+      ],
+      amenityPhotos: [
+        "/images/adamant-toreo-plaza-view/07-ammeneties-5.jpeg",
+        "/images/adamant-toreo-plaza-view/08-ammeneties-2.jpeg",
+        "/images/adamant-toreo-plaza-view/09-ammeneties-1.jpeg",
+        "/images/adamant-toreo-plaza-view/06-8e349982-f7d7-4d9a-91a3-dd126890596e-1-201-a.jpeg"
+      ]
+    },
+    "Distrito Revolución": {
+      beds: 1,
+      baths: 2,
+      price: "$1,550",
+      photos: [
+        "/images/distrito-revolucion/01-2190eb1a-ccc4-43b1-a060-13398a470e3f-1-105-c.jpeg",
+        "/images/distrito-revolucion/02-3b8ecfb0-aef1-45cc-90a5-5c5f546b2e38-1-105-c.jpeg",
+        "/images/distrito-revolucion/03-4b9ba20e-e8fc-4f9b-b2c9-f9f2a41dfa61-1-105-c.jpeg",
+        "/images/distrito-revolucion/04-6d0a16b0-cb41-45bf-93fc-761b4920c693-1-105-c.jpeg",
+        "/images/distrito-revolucion/05-aae8b896-0280-486a-8326-75109f9effae-1-105-c.jpeg",
+        "/images/distrito-revolucion/06-ade341e3-5a30-4d43-b970-1f5a111460a3-1-105-c.jpeg"
+      ],
+      amenityPhotos: [
+        "/images/distrito-revolucion/06-ade341e3-5a30-4d43-b970-1f5a111460a3-1-105-c.jpeg",
+        "/images/distrito-revolucion/05-aae8b896-0280-486a-8326-75109f9effae-1-105-c.jpeg",
+        "/images/distrito-revolucion/04-6d0a16b0-cb41-45bf-93fc-761b4920c693-1-105-c.jpeg",
+        "/images/distrito-revolucion/03-4b9ba20e-e8fc-4f9b-b2c9-f9f2a41dfa61-1-105-c.jpeg"
+      ]
+    },
+    "Icon 11 Pool View": {
+      beds: 1,
+      baths: 1,
+      price: "$1,450",
+      photos: [
+        "/images/icon-11-pool-view/01-2efe4d1d-0510-4764-84bb-21011b3b6b89-1-105-c.jpeg",
+        "/images/icon-11-pool-view/02-54c354bd-6077-4c37-b85e-7c2b9689760c-1-105-c.jpeg",
+        "/images/icon-11-pool-view/03-9b4fcad3-219c-4001-ad8f-c0b65a1e1194-1-105-c.jpeg",
+        "/images/icon-11-pool-view/04-9fac4421-d943-414c-b5cd-30f1398a5617-1-105-c.jpeg",
+        "/images/icon-11-pool-view/05-a0aad3af-81b3-4b69-8ff3-341f676e5614-1-105-c.jpeg",
+        "/images/icon-11-pool-view/06-aff4c4e5-a176-494d-baf3-aec8aefa52a9-1-105-c.jpeg"
+      ],
+      amenityPhotos: [
+        "/images/icon-11-pool-view/06-aff4c4e5-a176-494d-baf3-aec8aefa52a9-1-105-c.jpeg",
+        "/images/icon-11-pool-view/05-a0aad3af-81b3-4b69-8ff3-341f676e5614-1-105-c.jpeg",
+        "/images/icon-11-pool-view/04-9fac4421-d943-414c-b5cd-30f1398a5617-1-105-c.jpeg",
+        "/images/icon-11-pool-view/03-9b4fcad3-219c-4001-ad8f-c0b65a1e1194-1-105-c.jpeg"
+      ]
+    },
+    "Lucca Terrace Studio Max": {
+      beds: 1,
+      baths: 1,
+      price: "$1,600",
+      photos: [
+        "/images/lucca-terrace-studio-max/01-2349155f-f194-4069-bf39-03873195144b-1-105-c.jpeg",
+        "/images/lucca-terrace-studio-max/02-86e1d9f1-e664-463c-a457-fcc3c8967319-1-102-a.jpeg",
+        "/images/lucca-terrace-studio-max/03-9881d4b3-da09-47f8-b058-5f0bc56c1998-1-102-o.jpeg",
+        "/images/lucca-terrace-studio-max/04-9d135694-d216-43cc-a0f7-3665245c766f-1-102-a.jpeg",
+        "/images/lucca-terrace-studio-max/05-b436bcc7-9f61-497e-9076-872a24d520b6-1-102-a.jpeg",
+        "/images/lucca-terrace-studio-max/06-db1dcb9a-6fae-44c1-a016-6f61aa0951f2-1-102-a.jpeg"
+      ],
+      amenityPhotos: [
+        "/images/lucca-terrace-studio-max/06-db1dcb9a-6fae-44c1-a016-6f61aa0951f2-1-102-a.jpeg",
+        "/images/lucca-terrace-studio-max/05-b436bcc7-9f61-497e-9076-872a24d520b6-1-102-a.jpeg",
+        "/images/lucca-terrace-studio-max/04-9d135694-d216-43cc-a0f7-3665245c766f-1-102-a.jpeg",
+        "/images/lucca-terrace-studio-max/03-9881d4b3-da09-47f8-b058-5f0bc56c1998-1-102-o.jpeg"
+      ]
+    },
+    "Luzia 1 Bedroom Peninsula View": {
+      beds: 1,
+      baths: 1,
+      price: "$1,600",
+      photos: [
+        "/images/luzia-1-bedroom-peninsula-view/01-luzia-master.jpeg",
+        "/images/luzia-1-bedroom-peninsula-view/02-luzia-master-1.jpeg",
+        "/images/luzia-1-bedroom-peninsula-view/03-08082a6b-435f-4d3e-8549-c378e09a9553-1-105-c.jpeg",
+        "/images/luzia-1-bedroom-peninsula-view/04-5ec6ab6e-4bb8-4dac-9500-38b5044205e5-1-105-c.jpeg",
+        "/images/luzia-1-bedroom-peninsula-view/05-d61b7e40-4d3c-411c-9580-b66c68e374b9-1-105-c.jpeg",
+        "/images/luzia-1-bedroom-peninsula-view/06-luzia-bathroom.jpeg"
+      ],
+      amenityPhotos: [
+        "/images/luzia-1-bedroom-peninsula-view/07-ammeneties-4.jpeg",
+        "/images/luzia-1-bedroom-peninsula-view/08-ammeneties-3.jpeg",
+        "/images/luzia-1-bedroom-peninsula-view/09-ammeneties-2.jpeg",
+        "/images/luzia-1-bedroom-peninsula-view/10-ammeneties-1.jpeg"
+      ]
+    },
+    "S7ETE Revolución": {
+      beds: 1,
+      baths: 1,
+      price: "$1,450",
+      photos: [
+        "/images/s7ete-revolucion/01-6867d24a-b7fd-4d41-a3f1-42a5bf150770-1-105-c.jpeg",
+        "/images/s7ete-revolucion/02-7c132a61-15e1-427b-8753-10372e162e48-1-105-c.jpeg",
+        "/images/s7ete-revolucion/03-85182899-dcc6-4ee6-ad29-e9387ec94048-1-105-c.jpeg",
+        "/images/s7ete-revolucion/04-ad503096-1c18-4066-b509-25429c2aea8d.jpeg",
+        "/images/s7ete-revolucion/05-bd703a4f-d3f9-486a-89ae-7adfd948b369-1-105-c.jpeg",
+        "/images/s7ete-revolucion/06-ammeneties-2.jpeg"
+      ],
+      amenityPhotos: [
+        "/images/s7ete-revolucion/06-ammeneties-2.jpeg",
+        "/images/s7ete-revolucion/07-ammeneties-1.jpeg",
+        "/images/s7ete-revolucion/05-bd703a4f-d3f9-486a-89ae-7adfd948b369-1-105-c.jpeg",
+        "/images/s7ete-revolucion/04-ad503096-1c18-4066-b509-25429c2aea8d.jpeg"
+      ]
+    },
+    "Vista Vela 3": {
+      beds: 2,
+      baths: 3,
+      price: "$2,150",
+      photos: [
+        "/images/vista-vela-3-2bed/vista-vela-2bed-indoor-and-outdoor-living-space.jpeg",
+        "/images/vista-vela-3-2bed/vista-vela-2bed-dinning-indoor-and-outoor.jpeg",
+        "/images/vista-vela-3-2bed/vista-vela-2bed-kitchen-wide.jpeg",
+        "/images/vista-vela-3-2bed/vista-vela-2bed-living-2.jpeg",
+        "/images/vista-vela-3-2bed/vista-vela-2bed-master.jpeg",
+        "/images/vista-vela-3-2bed/vista-vela-2bed-master-2.jpeg"
+      ],
+      amenityPhotos: [
+        "/images/vista-vela-3-2bed/vista-vela-2bed-ameneties-pools.jpeg",
+        "/images/vista-vela-3-2bed/vista-vela-2bed-kitchen-coffee-station.jpeg",
+        "/images/vista-vela-3-2bed/vista-vela-2bed-kitchen.jpeg",
+        "/images/vista-vela-3-2bed/vista-vela-2bed-dinning.jpeg"
+      ]
+    },
+    "Vista Vela 3 Arch + Ocean View": {
+      beds: 3,
+      baths: 4,
+      price: "$2,600",
+      photos: [
+        "/images/vista-vela-3-4bed-ocean/vista-vela-3bed-view.jpeg",
+        "/images/vista-vela-3-4bed-ocean/vista-vela-3bed-terrace-living-space.jpeg",
+        "/images/vista-vela-3-4bed-ocean/vista-vela-3bed-living.jpeg",
+        "/images/vista-vela-3-4bed-ocean/vista-vela-3bed-kitchen.jpeg",
+        "/images/vista-vela-3-4bed-ocean/vista-vela-3bed-master.jpeg",
+        "/images/vista-vela-3-4bed-ocean/vista-vela-3bed-2nd-bedroom.jpeg"
+      ],
+      amenityPhotos: [
+        "/images/vista-vela-3-4bed-ocean/vista-vela-3bed-view.jpeg",
+        "/images/vista-vela-3-4bed-ocean/vista-vela-3bed-master-bath.jpeg",
+        "/images/vista-vela-3-4bed-ocean/vista-vela-3bed-3-bedroom-2nd-bathroom.jpeg",
+        "/images/vista-vela-3-4bed-ocean/vista-vela-3bed-bedroom-wine-fridge.jpeg"
+      ]
+    },
+    "Vista Vela 3 PH Arch + Ocean View": {
+      beds: 1,
+      baths: 2,
+      price: "$2,000",
+      photos: [
+        "/images/vista-vela-3-terrace/hot-tub.jpeg",
+        "/images/vista-vela-3-terrace/arch-view.jpeg",
+        "/images/vista-vela-3-terrace/living-dining.jpeg",
+        "/images/vista-vela-3-terrace/bedroom.jpeg",
+        "/images/vista-vela-3-terrace/kitchen.jpeg",
+        "/images/vista-vela-3-terrace/night-terrace.jpeg"
+      ],
+      amenityPhotos: [
+        "/images/vista-vela-3-terrace/hot-tub.jpeg",
+        "/images/vista-vela-3-terrace/bathroom.jpeg",
+        "/images/vista-vela-3-terrace/shower.jpeg",
+        "/images/vista-vela-3-terrace/night-terrace.jpeg"
+      ]
+    },
+    "Viñedos del Mar PH": {
+      beds: 2,
+      baths: 2,
+      price: "$1,800",
+      photos: [
+        "/images/vinedos-del-mar-ph/01-2bc9e424-02ea-4143-8bf0-c510c959b1a5-1-105-c.jpeg",
+        "/images/vinedos-del-mar-ph/02-62d7a729-48e0-481e-832c-bf7f5635fefb-1-105-c.jpeg",
+        "/images/vinedos-del-mar-ph/03-9e8131ae-89cc-4f9b-b1da-ecd50dade06d-1-105-c.jpeg",
+        "/images/vinedos-del-mar-ph/04-a7be2baa-a09a-4f73-8314-d819c4449e06-1-105-c.jpeg",
+        "/images/vinedos-del-mar-ph/05-eeabecd0-6b5a-47e2-806f-b357d14ce897-1-105-c.jpeg",
+        "/images/vinedos-del-mar-ph/06-f4d3a804-5b46-424c-97fa-a7dcd0670a96-1-105-c.jpeg"
+      ],
+      amenityPhotos: [
+        "/images/vinedos-del-mar-ph/07-ammeneties-3.jpeg",
+        "/images/vinedos-del-mar-ph/08-ammeneties-2.jpeg",
+        "/images/vinedos-del-mar-ph/09-ammeneties-1.jpeg",
+        "/images/vinedos-del-mar-ph/06-f4d3a804-5b46-424c-97fa-a7dcd0670a96-1-105-c.jpeg"
+      ]
+    }
+  };
+
+  Object.entries(propertyPhotoOverrides).forEach(([name, override]) => {
+    if (propertyDetails[name]) {
+      propertyDetails[name] = { ...propertyDetails[name], ...override };
+    }
+  });
+  // PHOTO_OVERRIDES_END
+
   function loadProperty() {
     const params = new URLSearchParams(window.location.search);
     const propertyName = params.get('property');
@@ -704,23 +901,25 @@
     document.getElementById('detailAmenities').innerHTML = amenitiesHTML;
 
     // Set main gallery photos if available
-    if (data.photos && data.photos.length >= 2) {
-      document.getElementById('heroMain').src = data.photos[0];
-      document.getElementById('heroSide').src = data.photos[1];
-    }
-    const galleryImgs = document.querySelectorAll('.gallery-item img');
-    if (data.photos) {
-      data.photos.forEach((src, i) => {
-        if (galleryImgs[i]) galleryImgs[i].src = src;
-      });
+    const heroMain = document.getElementById('heroMain');
+    const heroSide = document.getElementById('heroSide');
+    const galleryEl = document.querySelector('.detail-gallery');
+    if (data.photos && data.photos.length) {
+      if (data.photos.length >= 2) {
+        heroMain.src = data.photos[0];
+        heroSide.src = data.photos[1];
+      }
+      galleryEl.innerHTML = data.photos.map((src, i) => `
+        <div class="gallery-item"><img src="${src}" alt="${propertyName} photo ${i + 1}"/></div>
+      `).join('');
     }
 
     // Set amenity photos if available
-    const amenityImgEls = document.querySelectorAll('.amenity-photo img');
-    if (data.amenityPhotos) {
-      data.amenityPhotos.forEach((src, i) => {
-        if (amenityImgEls[i]) amenityImgEls[i].src = src;
-      });
+    const amenityPhotosEl = document.getElementById('detailAmenitiesPhotos');
+    if (data.amenityPhotos && data.amenityPhotos.length) {
+      amenityPhotosEl.innerHTML = data.amenityPhotos.map((src, i) => `
+        <div class="amenity-photo"><img src="${src}" alt="${propertyName} amenity ${i + 1}"/></div>
+      `).join('');
     }
 
     // Form submission
